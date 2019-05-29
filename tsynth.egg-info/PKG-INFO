@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: tsynth
+Version: 0.1
+Summary: An enumerative solver for SyGuS problems
+Home-page: https://github.com/thomasfsteeples/tsynth/
+Author: Thomas Steeples
+Author-email: steeps@robots.ox.ac.uk
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
