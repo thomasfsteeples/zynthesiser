@@ -1,3 +1,4 @@
+
 # Parsing Dependencies
 import antlr4
 from tsynth.grammars.SyGuS_v1Lexer import SyGuS_v1Lexer
@@ -33,17 +34,17 @@ def main():
         print("tsynth does not support synthesis of multiple functions at this time")
         sys.exit()
 
-    limit = 7
+    limit = 10
 
     candidate = solve(spec, limit)
 
     print(candidate)
 
-def test_candidate(spec, synth_func_declaration, candidate_word):
-    candidate = expr_string_to_z3(candidate_word, spec.logic, spec.variables, [])
+def test_candidate(spec, synth_func, candidate_word):
+    candidate = expr_string_to_z3(candidate_word, spec.logic, synth_func['inputs'], [])
     s = z3.Solver()
 
-    substituted_goal = util.substitute_function_for_expression(spec.goal, synth_func_declaration, spec.z3_variables, candidate)
+    substituted_goal = util.substitute_function_for_expression(spec.goal, synth_func['decl'], spec.z3_variables, candidate)
     new_goal = z3.simplify(z3.Not(z3.ForAll(spec.z3_variables, substituted_goal)))
 
     s.add(new_goal)
@@ -52,15 +53,14 @@ def test_candidate(spec, synth_func_declaration, candidate_word):
 
 def solve(spec, limit):
     synth_func = spec.synth_funcs[list(spec.synth_funcs.keys())[0]]
-    synth_func_declaration = synth_func['decl']
 
     cfg = CFG(synth_func['grammar'])
-    function_generator = Word_Generator(cfg, spec.logic, spec.variables, [])
+    function_generator = Word_Generator(cfg, spec.logic, synth_func['inputs'], [])
 
     for i in range(1, limit):
         words = function_generator.generate('S0', i)
         for word in words:
-            validity = test_candidate(spec, synth_func_declaration, word)
+            validity = test_candidate(spec, synth_func, word)
             if validity == 'unsat':
                 return word
     return ''

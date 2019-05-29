@@ -36,7 +36,12 @@ class SyGuS_Spec:
             output = util.str_to_sort(current_func['output_sort'])
 
             synth_func_declaration = z3.Function(synth_func, *inputs, output)
-            synth_funcs[synth_func] = {'decl' : synth_func_declaration, 'grammar' : current_func['grammar']}
+            synth_funcs[synth_func] = {
+                'decl' : synth_func_declaration, 
+                'inputs' : current_func['inputs'], 
+                'output_sort' :  current_func['output_sort'],
+                'grammar' : current_func['grammar']
+            }
 
         return synth_funcs
 
