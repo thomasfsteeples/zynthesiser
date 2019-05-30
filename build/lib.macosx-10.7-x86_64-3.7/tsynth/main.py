@@ -34,26 +34,14 @@ def parse_sygus_file(sygus_file):
 
 def test_candidate(spec, synth_func, candidate_word):
     candidate = expr_string_to_z3(candidate_word, spec.logic, synth_func['inputs'], [])
+    s = z3.Solver()
 
     substituted_goal = util.substitute_function_for_expression(spec.goal, synth_func['decl'], synth_func['z3_inputs'], candidate)
-    if len(spec.variables) > 0:
-        new_goal = z3.simplify(z3.Not(z3.ForAll(spec.z3_variables, substituted_goal)))
+    new_goal = z3.simplify(z3.Not(z3.ForAll(spec.z3_variables, substituted_goal)))
 
-        s = z3.Solver()
-        s.add(new_goal)
-
-        validity = str(s.check())
-        return validity
-    else:
-        if substituted_goal.eq(z3.BoolVal(True)):
-            return 'unsat'
-        elif substituted_goal.eq(z3.BoolVal(False)):
-            return 'sat'
-        else:
-            s = z3.Solver()
-            s.add(z3.Not(substituted_goal))
-            validity = str(s.check())
-            return validity
+    s.add(new_goal)
+    validity = str(s.check())
+    return validity
 
 def solve(spec, limit):
     synth_func = spec.synth_funcs[list(spec.synth_funcs.keys())[0]]
@@ -68,16 +56,11 @@ def solve(spec, limit):
         elapsed = time.time() - start
         print("Function generation at depth {} took {} seconds".format(i, elapsed))
         print("{} candidates to try".format(len(words)))
-        start = time.time()
+        print()
         for word in words:
             validity = test_candidate(spec, synth_func, word)
             if validity == 'unsat':
-                elapsed = time.time() - start
-                print("z3 at depth {} took {} seconds".format(i, elapsed))
                 return word
-        elapsed = time.time() - start
-        print("z3 at depth {} took {} seconds".format(i, elapsed))
-        print()
     return ''
 
 def main():

@@ -4,7 +4,6 @@ import z3
 
 from tsynth.string_z3_conversion import expr_string_to_z3, z3_to_expr_string
 
-# https://stackoverflow.com/questions/952914/how-to-make-a-flat-list-out-of-list-of-lists
 def flatten(list_of_lists):
     it = iter(list_of_lists)
     for e in it:
@@ -147,10 +146,10 @@ class Word_Generator:
                 res = []
                 for nt1, nt2 in self.product_productions[from_symbol]:
                     for i in range(1, word_length):
-                            nt1_words = self.generate(nt1, i)
-                            nt2_words = self.generate(nt2, word_length - i)
-                            words = ["{} {}".format(w1, w2) for w1 in nt1_words for w2 in nt2_words]
-                            res.extend(words)
+                        nt1_words = self.generate(nt1, i)
+                        nt2_words = self.generate(nt2, word_length - i)
+                        words = ["{} {}".format(w1, w2) for w1 in nt1_words for w2 in nt2_words]
+                        res.extend(words)
 
                 if from_symbol in self.original_non_terminals:        
                     simplified_res = set()
@@ -163,8 +162,7 @@ class Word_Generator:
                     for i in range(1, word_length):
                         simplified_res -= set(self.generate(from_symbol, i))
 
-                    simplified_res = list(simplified_res)
-                    self.memory[from_symbol][word_length] = simplified_res
+                    self.memory[from_symbol][word_length] = list(simplified_res)
                     return simplified_res
 
                 else:

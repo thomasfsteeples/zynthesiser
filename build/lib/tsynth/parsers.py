@@ -48,26 +48,6 @@ class SyGuS_Extractor(SyGuS_v1Visitor):
         # Put function into spec
         self.spec.synth_funcs[synth_func_name] = synth_func
 
-    def visitFun_decl_cmd(self, ctx:SyGuS_v1Parser.Fun_decl_cmdContext):
-        
-        uninterpreted_func = {}
-        uninterpreted_func_name = ctx.SYMBOL()
-        sorts = ctx.sort_expr()
-
-        uninterpreted_func['inputs'] = []
-
-        for sort in sorts[:-1]:
-            uninterpreted_func['inputs'].append(self._get_original_text(sort))
-
-        uninterpreted_func['output_sort'] = self._get_original_text(sorts[-1])
-
-        self.spec.uninterpreted_funcs[uninterpreted_func_name] = uninterpreted_func
-
-    def visitFun_def_cmd(self, ctx:SyGuS_v1Parser.Fun_def_cmdContext):
-        
-        func = {}
-        
-
     def visitNt_def(self, ctx:SyGuS_v1Parser.Nt_defContext):
         nt = ctx.SYMBOL().getText()
         g_terms = ctx.g_term()

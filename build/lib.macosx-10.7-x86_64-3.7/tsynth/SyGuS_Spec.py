@@ -9,11 +9,7 @@ import tsynth.util as util
 class Text_SyGuS_Spec:
     def __init__(self):
         self.logic = ""
-
         self.synth_funcs = {}
-        self.uninterpreted_funcs = {}
-        self.funcs = {}
-        
         self.variables = {}
         self.constraints = []
 

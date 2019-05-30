@@ -1,13 +1,14 @@
 from setuptools import setup, find_packages
 from setuptools.extension import Extension
 from Cython.Build import cythonize
+from Cython.Distutils import build_ext
 
 with open("README.md", "r") as f:
     long_description = f.read()
 
-source_files = ['./tsynth/main.pyx']
-
-extensions = [Extension("tsynth", source_files)]
+extensions = [
+    #Extension('tsynth.string_z3_conversion', ['tsynth/string_z3_conversion.pyx'])
+]
 
 setup(
     name="tsynth",
@@ -19,7 +20,12 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/thomasfsteeples/tsynth/",
 
-    ext_modules = cythonize(extensions, annotate = True),
+    cmdclass = {'build_ext': build_ext},
+    ext_modules = cythonize(
+        extensions, 
+        annotate = True,
+        language_level=3
+    ),
 
     packages=find_packages(),
     classifiers=[

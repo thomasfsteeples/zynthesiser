@@ -47,8 +47,7 @@ def str_to_sort(sort_str):
         bitvec_pattern = re.compile(r"^\(BitVec ([0-9]+)\)$")
         match = bitvec_pattern.match(sort_str)    
         if match != None:
-            size = int(match.groups()[0])
-            z3_sort = z3.BitVecSort(size)
+            z3_sort = z3.BitVecSort(match.groups()[0])
         else:
             enum_pattern = re.compile(r"^\(Enum \( ((?:[a-zA-Z_+\-*&|!~<>=/%?\.$\^][a-zA-Z_+\-*&|!~<>=/%?\.$\^0-9]* )+)\)\)$")
             match = enum_pattern.match(sort_str)

@@ -6,7 +6,15 @@ Home-page: https://github.com/thomasfsteeples/tsynth/
 Author: Thomas Steeples
 Author-email: steeps@robots.ox.ac.uk
 License: UNKNOWN
-Description: UNKNOWN
+Description: # tsynth
+        
+        tsynth is a enumerative SyGuS solver, written in Python, built on top of [Z3](https://github.com/Z3Prover/z3).
+        
+        ## Getting Started
+        
+        ## Authors
+        
+        Initial build - [Thomas Steeples](https://www.thomassteeples.co.uk)
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)

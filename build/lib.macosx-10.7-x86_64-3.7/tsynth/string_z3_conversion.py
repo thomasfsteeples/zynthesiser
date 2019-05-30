@@ -11,10 +11,7 @@ def z3_to_expr_string(expr, logic, variables, constants):
 
     symbol = expr.decl().name()
     if len(expr.children()) > 0:
-        children = []
-        for child in expr.children():
-            children.append(z3_to_expr_string(child, logic, variables, constants))
-
+        children = list(map(lambda ch: z3_to_expr_string(ch, logic, variables, constants), expr.children()))
         arity = expr.decl().arity()
         return (symbol_table[symbol] + ' ')*(len(children) - arity + 1) + ' '.join(children)
     else:
@@ -53,14 +50,8 @@ def expr_string_to_z3(expr_str, logic, variables, constants):
                 eval_stack.append(z3.RealVal(token))
             elif util.is_bool_literal(token):
                 eval_stack.append(z3.BoolVal(token))
-            elif util.is_bv_literal(token):
-                if token[:2] == '#x':
-                    lit = int(token[2:], 16)
-                    width = len(token[2:]) * 4
-                else:
-                    lit = int(token[2:], 2)
-                    width = len(token[2:])
-                eval_stack.append(z3.BitVecVal(lit, width))
+            # elif is_bv_literal(token):
+            #     eval_stack.append(z3.BitVecVal(token))
             elif util.is_symbol(token):
                 token_type = util.str_to_sort(variables[token])
                 eval_stack.append(z3.Const(token, token_type))

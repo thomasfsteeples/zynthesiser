@@ -17,9 +17,6 @@ class SyGuS_Extractor(SyGuS_v1Visitor):
         super().__init__()
         self.spec = spec
 
-    def _get_original_text(self, term):
-        return term.start.getInputStream().getText(term.start.start, term.stop.stop)
-
     def visitSet_logic_cmd(self, ctx:SyGuS_v1Parser.Set_logic_cmdContext):
         self.spec.logic = ctx.SYMBOL().getText()
 
@@ -34,9 +31,9 @@ class SyGuS_Extractor(SyGuS_v1Visitor):
         synth_func['inputs'] = {}
 
         for sym, sort in zip(symbols[1:], sorts[:-1]):
-            synth_func['inputs'][sym.getText()] = self._get_original_text(sort)
+            synth_func['inputs'][sym.getText()] = sort.getText()
 
-        synth_func['output_sort'] = self._get_original_text(sorts[-1])
+        synth_func['output_sort'] = sorts[-1].getText()
 
         synth_func['grammar'] = {}
 
@@ -48,33 +45,13 @@ class SyGuS_Extractor(SyGuS_v1Visitor):
         # Put function into spec
         self.spec.synth_funcs[synth_func_name] = synth_func
 
-    def visitFun_decl_cmd(self, ctx:SyGuS_v1Parser.Fun_decl_cmdContext):
-        
-        uninterpreted_func = {}
-        uninterpreted_func_name = ctx.SYMBOL()
-        sorts = ctx.sort_expr()
-
-        uninterpreted_func['inputs'] = []
-
-        for sort in sorts[:-1]:
-            uninterpreted_func['inputs'].append(self._get_original_text(sort))
-
-        uninterpreted_func['output_sort'] = self._get_original_text(sorts[-1])
-
-        self.spec.uninterpreted_funcs[uninterpreted_func_name] = uninterpreted_func
-
-    def visitFun_def_cmd(self, ctx:SyGuS_v1Parser.Fun_def_cmdContext):
-        
-        func = {}
-        
-
     def visitNt_def(self, ctx:SyGuS_v1Parser.Nt_defContext):
         nt = ctx.SYMBOL().getText()
         g_terms = ctx.g_term()
         rules = []
 
         for g_term in g_terms: 
-            rule_text = self._get_original_text(g_term)
+            rule_text = g_term.start.getInputStream().getText(g_term.start.start, g_term.stop.stop)
 
             rule_lexer = TermLexer(antlr4.InputStream(rule_text))
             rule_stream = antlr4.CommonTokenStream(rule_lexer)
@@ -122,7 +99,6 @@ class Constraint_Extractor(TermVisitor):
         children = []
         for term in ctx.term():
             children.append(self.visit(term))
-
         return f(*children)
 
     def visitP_int_literal(self, ctx:TermParser.P_int_literalContext):
@@ -140,12 +116,12 @@ class Constraint_Extractor(TermVisitor):
     def visitBv_literal(self, ctx:TermParser.Bv_literalContext):
         bv_lit = ctx.BV_CONST().getText()
         lit = 0
-        if bv_lit[:2] == '#x':
-            lit = int(bv_lit[2:], 16)
-            width = len(bv_lit[2:]) * 4
+        if bv_lit[:2] == '0x':
+            lit = int(bv_lit, 16)
+            width = (len(bv_lit) - 2) * 4
         else:
-            lit = int(bv_lit[2:], 2)
-            width = len(bv_lit[2:])
+            lit = int(bv_lit, 2)
+            width = len(bv_lit) - 2
         return z3.BitVecVal(lit, width)
 
     def visitSymbol_term(self, ctx:TermParser.Symbol_termContext):

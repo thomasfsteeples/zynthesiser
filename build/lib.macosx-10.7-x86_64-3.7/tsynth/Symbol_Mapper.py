@@ -31,16 +31,7 @@ class Symbol_Mapper(metaclass = ABCMeta):
         },
 
         'FixedSizeBitVectors' : {
-            'bvnot'     : 'bvnot',
-            'bvneg'     : 'bvneg',
-            'bvand'     : 'bvand',
-            'bvor'      : 'bvor',
-            'bvadd'     : 'bvadd',
-            'bvmul'     : 'bvmul',
-            'bvudiv'    : 'bvudiv',
-            'bvurem'    : 'bvurem',
-            'bvshl'     : 'bvshl',
-            'bvlshr'    : 'bvlshr'
+
         }
         
     }
@@ -75,16 +66,7 @@ class Symbol_Mapper(metaclass = ABCMeta):
         },
 
         'FixedSizeBitVectors' : {
-            'bvnot'     : lambda x: ~x,
-            'bvneg'     : lambda x: -x,
-            'bvand'     : lambda x, y: x & y,
-            'bvor'      : lambda x, y: x | y,
-            'bvadd'     : lambda x, y: x + y,
-            'bvmul'     : lambda x, y: x * y,
-            'bvudiv'    : z3.UDiv,
-            'bvurem'    : z3.URem,
-            'bvshl'     : lambda x, y: x << y,
-            'bvlshr'    : z3.LShR
+
         }
         
     }
