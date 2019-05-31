@@ -1,24 +1,34 @@
 import antlr4
-from tsynth.grammars.TermLexer import TermLexer
-from tsynth.grammars.TermParser import TermParser
-from tsynth.parsers import Constraint_Extractor
+from zynthesiser.grammars.TermLexer import TermLexer
+from zynthesiser.grammars.TermParser import TermParser
+from zynthesiser.parsers import Constraint_Extractor
 
 import z3
-import tsynth.util as util
+import zynthesiser.util as util
+from zynthesiser.string_z3_conversion import expr_string_to_z3
 
 class Text_SyGuS_Spec:
     def __init__(self):
         self.logic = ""
-        self.synth_funcs = {}
         self.variables = {}
+
+        self.synth_funcs = {}
+        self.uninterpreted_funcs = {}
+        self.macros = {}
+        
         self.constraints = []
 
 class SyGuS_Spec:
     def __init__(self, text_spec):
         self.logic = text_spec.logic
+
         self.variables = text_spec.variables
         self.z3_variables = self._initialise_z3_variables(text_spec.variables)
+
         self.synth_funcs = self._initialise_synth_funcs(text_spec.synth_funcs)
+        self.uninterpreted_funcs = self._initialise_uninterpreted_funcs(text_spec.uninterpreted_funcs)
+        self.macros = self._initialise_macros(text_spec.macros)
+
         self.goal = self._initialise_goal(text_spec)
         
     def _initialise_z3_variables(self, text_vars):
@@ -51,8 +61,50 @@ class SyGuS_Spec:
 
         return synth_funcs
 
+    def _initialise_uninterpreted_funcs(self, text_u_funcs):
+        u_funcs = {}
+        for u_func in text_u_funcs:
+            current_func = text_u_funcs[u_func]
+
+            sorts = list(map(util.str_to_sort, current_func['sorts']))
+
+            u_funcs[u_func] = {
+                'decl' : z3.Function(u_func, *sorts)
+            } 
+        
+        return u_funcs
+
+    def _initialise_macros(self, text_macros):
+        macros = {}
+        for macro in text_macros:
+            current_macro = text_macros[macro]
+
+            input_sorts = list(map(util.str_to_sort, current_macro['inputs'].values()))
+            output_sort = util.str_to_sort(current_macro['output_sort'])
+
+            inputs = []
+            for i, text_input in enumerate(current_macro['inputs']):
+                inputs.append(z3.Const(text_input, input_sorts[i]))
+
+            macro_declaration = z3.Function(macro, *input_sorts, output_sort)
+            macros[macro] = {
+                'decl'              : macro_declaration, 
+                'inputs'            : current_macro['inputs'],
+                'z3_inputs'         : inputs,
+                'output_sort'       : current_macro['output_sort'],
+                'z3_output_sort'    : output_sort,
+                'definition'        : current_macro['definition'].strip('(').strip(')')
+            }
+
+        return macros
+
     def _initialise_goal(self, text_spec):
         constraints = []
+        funcs = {
+            **self.synth_funcs,
+            **self.uninterpreted_funcs,
+            **self.macros
+        }
 
         for original_constraint in text_spec.constraints:
             constraint_lexer = TermLexer(antlr4.InputStream(original_constraint))
@@ -60,7 +112,7 @@ class SyGuS_Spec:
             constraint_parser = TermParser(constraint_stream)
             constraint_tree = constraint_parser.term()
 
-            constraint_extractor = Constraint_Extractor(text_spec.logic, text_spec.variables, text_spec.synth_funcs)
+            constraint_extractor = Constraint_Extractor(self.logic, self.variables, funcs)
             constraint = constraint_extractor.visit(constraint_tree)
 
             constraints.append(constraint)
@@ -69,6 +121,8 @@ class SyGuS_Spec:
         
         for constraint in constraints:
             goal = z3.And(goal, constraint)
+
+        goal = z3.simplify(goal)
 
         return z3.simplify(goal)
 

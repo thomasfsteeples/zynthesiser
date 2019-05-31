@@ -1,14 +1,14 @@
 import antlr4
-from tsynth.grammars.SyGuS_v1Lexer import SyGuS_v1Lexer
-from tsynth.grammars.SyGuS_v1Parser import SyGuS_v1Parser
-from tsynth.grammars.SyGuS_v1Visitor import SyGuS_v1Visitor
+from zynthesiser.grammars.SyGuS_v1Lexer import SyGuS_v1Lexer
+from zynthesiser.grammars.SyGuS_v1Parser import SyGuS_v1Parser
+from zynthesiser.grammars.SyGuS_v1Visitor import SyGuS_v1Visitor
 
-from tsynth.grammars.TermLexer import TermLexer
-from tsynth.grammars.TermParser import TermParser
-from tsynth.grammars.TermVisitor import TermVisitor
+from zynthesiser.grammars.TermLexer import TermLexer
+from zynthesiser.grammars.TermParser import TermParser
+from zynthesiser.grammars.TermVisitor import TermVisitor
 
-import tsynth.util as util
-from tsynth.Symbol_Mapper import Symbol_Mapper
+import zynthesiser.util as util
+from zynthesiser.Symbol_Mapper import Symbol_Mapper
 
 import z3
 
@@ -48,6 +48,37 @@ class SyGuS_Extractor(SyGuS_v1Visitor):
         # Put function into spec
         self.spec.synth_funcs[synth_func_name] = synth_func
 
+    def visitFun_decl_cmd(self, ctx:SyGuS_v1Parser.Fun_decl_cmdContext):
+        
+        uninterpreted_func = {}
+        uninterpreted_func_name = ctx.SYMBOL()
+        sorts = ctx.sort_expr()
+
+        uninterpreted_func['sorts'] = []
+
+        for sort in sorts:
+            uninterpreted_func['sorts'].append(self._get_original_text(sort))
+
+        self.spec.uninterpreted_funcs[uninterpreted_func_name] = uninterpreted_func
+
+    def visitFun_def_cmd(self, ctx:SyGuS_v1Parser.Fun_def_cmdContext):
+        
+        macro = {}
+        symbols = ctx.SYMBOL()
+        sorts = ctx.sort_expr()
+
+        macro_name = symbols[0].getText()
+        macro['inputs'] = {}
+
+        for sym, sort in zip(symbols[1:], sorts[:-1]):
+            macro['inputs'][sym.getText()] = self._get_original_text(sort)
+
+        macro['output_sort'] = self._get_original_text(sorts[-1])
+
+        macro['definition'] = self._get_original_text(ctx.term())
+
+        self.spec.macros[macro_name] = macro
+
     def visitNt_def(self, ctx:SyGuS_v1Parser.Nt_defContext):
         nt = ctx.SYMBOL().getText()
         g_terms = ctx.g_term()
@@ -79,7 +110,6 @@ class SyGuS_Extractor(SyGuS_v1Visitor):
         self.spec.constraints.append(original_constraint)
 
 
-
 class Constraint_Extractor(TermVisitor):
     def __init__(self, logic, variables, funcs):
         super().__init__()
@@ -90,12 +120,7 @@ class Constraint_Extractor(TermVisitor):
     def visitFunc_term(self, ctx:TermParser.Func_termContext):
         symbol = ctx.SYMBOL().getText()
         if symbol in self.funcs:
-            current_func =  self.funcs[symbol]
-
-            inputs = map(util.str_to_sort, current_func['inputs'].values())
-            output = util.str_to_sort(current_func['output_sort'])
-
-            f = z3.Function(symbol, *inputs, output)
+            f = self.funcs[symbol]['decl']
         else:
             f = Symbol_Mapper.get_function_from_symbol(symbol, self.logic)
 

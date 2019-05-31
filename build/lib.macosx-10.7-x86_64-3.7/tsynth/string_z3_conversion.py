@@ -1,8 +1,8 @@
 import z3
 from inspect import getfullargspec
-from tsynth.Symbol_Mapper import Symbol_Mapper
+from zynthesiser.Symbol_Mapper import Symbol_Mapper
 import re
-import tsynth.util as util
+import zynthesiser.util as util
 
 import sys
 

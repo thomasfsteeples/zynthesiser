@@ -2,7 +2,7 @@ from collections import defaultdict
 from copy import deepcopy
 import z3
 
-from tsynth.string_z3_conversion import expr_string_to_z3, z3_to_expr_string
+from zynthesiser.string_z3_conversion import expr_string_to_z3, z3_to_expr_string
 
 # https://stackoverflow.com/questions/952914/how-to-make-a-flat-list-out-of-list-of-lists
 def flatten(list_of_lists):
@@ -115,7 +115,7 @@ class CFG:
 
 class Word_Generator:
 
-        def __init__(self, cfg, logic, variables, constants):
+        def __init__(self, cfg, logic, variables):
             self.cfg = cfg.convert_to_chomsky_normal_form()
             self.memory = {}
             for nt in self.cfg.non_terminals():
@@ -156,8 +156,8 @@ class Word_Generator:
                     simplified_res = set()
 
                     for word in res:
-                        z3_expr = z3.simplify(expr_string_to_z3(word, self.logic, self.variables, self.constants))
-                        simplified_word = z3_to_expr_string(z3_expr, self.logic, self.variables, self.constants)
+                        z3_expr = z3.simplify(expr_string_to_z3(word, self.logic, self.variables))
+                        simplified_word = z3_to_expr_string(z3_expr, self.logic, self.variables)
                         simplified_res.add(simplified_word)
 
                     for i in range(1, word_length):
@@ -170,3 +170,5 @@ class Word_Generator:
                 else:
                     self.memory[from_symbol][word_length] = res
                     return res
+                # self.memory[from_symbol][word_length] = res
+                # return res

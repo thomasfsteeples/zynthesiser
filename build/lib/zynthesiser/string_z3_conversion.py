@@ -1,24 +1,24 @@
 import z3
 from inspect import getfullargspec
-from tsynth.Symbol_Mapper import Symbol_Mapper
+from zynthesiser.Symbol_Mapper import Symbol_Mapper
 import re
-import tsynth.util as util
+import zynthesiser.util as util
 
 import sys
 
-def z3_to_expr_string(expr, logic, variables, constants):
+def z3_to_expr_string(expr, logic, variables):
     symbol_table = Symbol_Mapper.get_symbols_from_logic(logic)
 
     symbol = expr.decl().name()
     if len(expr.children()) > 0:
         children = []
         for child in expr.children():
-            children.append(z3_to_expr_string(child, logic, variables, constants))
+            children.append(z3_to_expr_string(child, logic, variables))
 
         arity = expr.decl().arity()
         return (symbol_table[symbol] + ' ')*(len(children) - arity + 1) + ' '.join(children)
     else:
-        if symbol in variables or symbol in constants:
+        if symbol in variables:
             return symbol
         elif symbol == 'Int':
             return expr.params()[0]
@@ -28,7 +28,7 @@ def z3_to_expr_string(expr, logic, variables, constants):
             print('z3_to_expr_string is doing something weird - sort it out')
             print(symbol)
 
-def expr_string_to_z3(expr_str, logic, variables, constants):
+def expr_string_to_z3(expr_str, logic, variables):
 
     eval_stack = []
     count_stack = []

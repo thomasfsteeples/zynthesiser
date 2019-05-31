@@ -1,16 +1,16 @@
 
 # Parsing Dependencies
 import antlr4
-from tsynth.grammars.SyGuS_v1Lexer import SyGuS_v1Lexer
-from tsynth.grammars.SyGuS_v1Parser import SyGuS_v1Parser
+from zynthesiser.grammars.SyGuS_v1Lexer import SyGuS_v1Lexer
+from zynthesiser.grammars.SyGuS_v1Parser import SyGuS_v1Parser
 
 # Internal Dependencies
-from tsynth.string_z3_conversion import expr_string_to_z3, z3_to_expr_string
-from tsynth.SyGuS_Spec import Text_SyGuS_Spec, SyGuS_Spec
-from tsynth.CFG import CFG, Word_Generator
-import tsynth.util as util
+from zynthesiser.string_z3_conversion import expr_string_to_z3, z3_to_expr_string
+from zynthesiser.SyGuS_Spec import Text_SyGuS_Spec, SyGuS_Spec
+from zynthesiser.CFG import CFG, Word_Generator
+import zynthesiser.util as util
 
-from tsynth.parsers import SyGuS_Extractor
+from zynthesiser.parsers import SyGuS_Extractor
 
 # External Dependencies
 import sys
@@ -67,7 +67,7 @@ def main():
     spec = parse_sygus_file(sys.argv[1])
 
     if len(spec.synth_funcs) > 1:
-        print("tsynth does not support synthesis of multiple functions at this time")
+        print("zynthesiser does not support synthesis of multiple functions at this time")
         sys.exit()
 
     limit = 11

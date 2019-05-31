@@ -2,7 +2,7 @@ from collections import defaultdict
 from copy import deepcopy
 import z3
 
-from tsynth.string_z3_conversion import expr_string_to_z3, z3_to_expr_string
+from zynthesiser.string_z3_conversion import expr_string_to_z3, z3_to_expr_string
 
 def flatten(list_of_lists):
     it = iter(list_of_lists)

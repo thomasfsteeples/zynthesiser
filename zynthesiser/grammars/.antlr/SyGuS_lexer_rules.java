@@ -1,4 +1,4 @@
-// Generated from /Users/steeps/Documents/CDT-Courses/Mini-Project-1/tsynth/tsynth/grammars/SyGuS_lexer_rules.g4 by ANTLR 4.7.1
+// Generated from /Users/steeps/Documents/CDT-Courses/Mini-Project-1/zynthesiser/zynthesiser/grammars/SyGuS_lexer_rules.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

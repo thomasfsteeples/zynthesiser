@@ -1,14 +1,14 @@
 import antlr4
-from tsynth.grammars.SyGuS_v1Lexer import SyGuS_v1Lexer
-from tsynth.grammars.SyGuS_v1Parser import SyGuS_v1Parser
-from tsynth.grammars.SyGuS_v1Visitor import SyGuS_v1Visitor
+from zynthesiser.grammars.SyGuS_v1Lexer import SyGuS_v1Lexer
+from zynthesiser.grammars.SyGuS_v1Parser import SyGuS_v1Parser
+from zynthesiser.grammars.SyGuS_v1Visitor import SyGuS_v1Visitor
 
-from tsynth.grammars.TermLexer import TermLexer
-from tsynth.grammars.TermParser import TermParser
-from tsynth.grammars.TermVisitor import TermVisitor
+from zynthesiser.grammars.TermLexer import TermLexer
+from zynthesiser.grammars.TermParser import TermParser
+from zynthesiser.grammars.TermVisitor import TermVisitor
 
-import tsynth.util as util
-from tsynth.Symbol_Mapper import Symbol_Mapper
+import zynthesiser.util as util
+from zynthesiser.Symbol_Mapper import Symbol_Mapper
 
 import z3
 

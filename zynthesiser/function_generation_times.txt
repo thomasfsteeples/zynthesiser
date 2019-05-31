@@ -1,6 +1,6 @@
 // Without Cython
 // Attempt 1
-(program_synthesis) Toms-Macbook-Pro:tsynth steeps$ python main.py ./examples/example_1.sl
+(program_synthesis) Toms-Macbook-Pro:zynthesiser steeps$ python main.py ./examples/example_1.sl
 Entered depth 1
 Function generation at depth 1 took 1.3828277587890625e-05 seconds
 6 candidates to try
@@ -43,7 +43,7 @@ Function generation at depth 10 took 50.09389519691467 seconds
 
 // Attempt 2
 
-(program_synthesis) Toms-Macbook-Pro:tsynth steeps$ python main.py ./examples/example_1.sl
+(program_synthesis) Toms-Macbook-Pro:zynthesiser steeps$ python main.py ./examples/example_1.sl
 Entered depth 1
 Function generation at depth 1 took 2.5272369384765625e-05 seconds
 6 candidates to try
@@ -86,7 +86,7 @@ Function generation at depth 10 took 51.183613300323486 seconds
 
 // Attempt 3
 
-(program_synthesis) Toms-Macbook-Pro:tsynth steeps$ python main.py ./examples/example_1.sl
+(program_synthesis) Toms-Macbook-Pro:zynthesiser steeps$ python main.py ./examples/example_1.sl
 Entered depth 1
 Function generation at depth 1 took 1.5974044799804688e-05 seconds
 6 candidates to try

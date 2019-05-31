@@ -1,10 +1,10 @@
 import antlr4
-from tsynth.grammars.TermLexer import TermLexer
-from tsynth.grammars.TermParser import TermParser
-from tsynth.parsers import Constraint_Extractor
+from zynthesiser.grammars.TermLexer import TermLexer
+from zynthesiser.grammars.TermParser import TermParser
+from zynthesiser.parsers import Constraint_Extractor
 
 import z3
-import tsynth.util as util
+import zynthesiser.util as util
 
 class Text_SyGuS_Spec:
     def __init__(self):

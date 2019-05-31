@@ -4,7 +4,7 @@ zynthesiser/CFG.py
 zynthesiser/SyGuS_Spec.py
 zynthesiser/Symbol_Mapper.py
 zynthesiser/__init__.py
-zynthesiser/main.py
+zynthesiser/core.py
 zynthesiser/parsers.py
 zynthesiser/string_z3_conversion.py
 zynthesiser/util.py
