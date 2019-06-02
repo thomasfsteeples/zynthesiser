@@ -39,10 +39,34 @@ class Zynthesiser:
         else:
             self.universally_quantified = False
         self.counter_examples = []
+        self._macros_decls = []
+        for macro in self.spec.macros:
+            self._macros_decls.append(self.spec.macros[macro]['decl'])
 
     def test_candidate(self, synth_func, candidate_word):
-        candidate = expr_string_to_z3(candidate_word, self.spec.logic, synth_func['inputs'])
-        substituted_goal = util.substitute_function_for_expression(self.spec.goal, synth_func['decl'], synth_func['z3_inputs'], candidate)
+        candidate = expr_string_to_z3(candidate_word, self.spec, synth_func['inputs'])
+
+        goal = util.substitute_function_for_expression(
+            self.spec.goal, 
+            synth_func['decl'], 
+            synth_func['z3_inputs'], 
+            candidate
+        )
+        
+        while(True):
+            macro_decl = util.contains_funcs(goal, self._macros_decls)
+            if macro_decl is None:
+                break
+            macro_name = macro_decl.name()
+            macro = self.spec.macros[macro_name]
+            macro_def = expr_string_to_z3(macro['definition'], self.spec, macro['inputs'])
+            macro_params = macro['z3_inputs']
+            goal = util.substitute_function_for_expression(
+                goal,
+                macro_decl,
+                macro_params,
+                macro_def
+            )
 
         if self.universally_quantified:
 
@@ -51,7 +75,7 @@ class Zynthesiser:
             for counter_example in self.counter_examples:
                 counter_example_constraints.append(
                     z3.simplify(z3.substitute(
-                        substituted_goal, 
+                        goal, 
                         list(zip(self.spec.z3_variables, counter_example))))
                 )
 
@@ -60,18 +84,18 @@ class Zynthesiser:
             if counter_example_constraint.eq(z3.BoolVal(False)):
                 return 'sat'
             if ~counter_example_constraint.eq(z3.BoolVal(True)):
-                substituted_goal = z3.And(substituted_goal, counter_example_constraint)
+                goal = z3.And(goal, counter_example_constraint)
             
         else:
-            if substituted_goal.eq(z3.BoolVal(True)):
+            if goal.eq(z3.BoolVal(True)):
                 return 'unsat'
-            if substituted_goal.eq(z3.BoolVal(False)):
+            if goal.eq(z3.BoolVal(False)):
                 return 'sat'
 
-        new_goal = z3.simplify(z3.Not(substituted_goal))
+        goal = z3.simplify(z3.Not(goal))
 
         s = z3.Solver()
-        s.add(new_goal)
+        s.add(goal)
 
         validity = str(s.check())
         if validity == 'sat':
@@ -91,9 +115,7 @@ class Zynthesiser:
         synth_func = self.spec.synth_funcs[list(self.spec.synth_funcs.keys())[0]]
 
         cfg = CFG(synth_func['grammar'])
-        function_generator = Word_Generator(cfg, self.spec.logic, synth_func['inputs'])
-
-        counter_examples = []
+        function_generator = Word_Generator(cfg, self.spec, synth_func)
 
         for i in range(1, limit+1):
             print("Entered depth {}".format(i))

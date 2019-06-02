@@ -6,37 +6,59 @@ import zynthesiser.util as util
 
 import sys
 
-def z3_to_expr_string(expr, logic, variables):
-    symbol_table = Symbol_Mapper.get_symbols_from_logic(logic)
+def z3_to_expr_string(expr, spec, variables_in_scope):
+    symbol_table = Symbol_Mapper.get_symbols_from_logic(spec.logic)
 
     symbol = expr.decl().name()
     if len(expr.children()) > 0:
         children = []
         for child in expr.children():
-            children.append(z3_to_expr_string(child, logic, variables))
+            children.append(z3_to_expr_string(child, spec, variables_in_scope))
+
+        params = []
+        for param in expr.params():
+            params.append(str(param))
+
+        if symbol in symbol_table:
+            f = symbol_table[symbol]
+        else:
+            f = symbol
 
         arity = expr.decl().arity()
-        return (symbol_table[symbol] + ' ')*(len(children) - arity + 1) + ' '.join(children)
+
+        if len(params) > 0:
+            return (f + ' ')*(len(children) - arity + 1) + ' '.join(params) + ' ' + ' '.join(children)
+        else:
+            return (f + ' ')*(len(children) - arity + 1) + ' '.join(children)
+        
     else:
-        if symbol in variables:
-            return symbol
-        elif symbol == 'Int':
-            return expr.params()[0]
-        elif symbol == 'true' or symbol == 'false':
+        if symbol in variables_in_scope:
             return symbol
         else:
-            print('z3_to_expr_string is doing something weird - sort it out')
-            print(symbol)
+            if z3.is_int(expr):
+                return expr.params()[0]
+            elif z3.is_bool(expr):
+                return symbol
+            elif z3.is_bv(expr):
+                num_str, size = expr.params()
+                num = int(num_str)
+                hex_num = hex(num)[2:]
+                padded_hex_num = '0' * (size//4 - len(hex_num)) + hex_num
+                return "#x{}".format(padded_hex_num)
+            else:
+                print('z3_to_expr_string is doing something weird - sort it out')
+                print(symbol)
 
-def expr_string_to_z3(expr_str, logic, variables):
+def expr_string_to_z3(expr_str, spec, variables_in_scope):
 
     eval_stack = []
     count_stack = []
 
-    symbol_table = Symbol_Mapper.get_functions_from_logic(logic)
+    symbol_table = Symbol_Mapper.get_functions_from_logic(spec.logic)
 
     tokens = expr_str.split(" ")
     for token in tokens:
+        # Handle functions first
         if token in symbol_table:
             arg_spec = getfullargspec(symbol_table[token])
             if arg_spec[3] != None:
@@ -46,6 +68,20 @@ def expr_string_to_z3(expr_str, logic, variables):
             num_args = len(arg_spec[0]) - num_default_args
             eval_stack.append(symbol_table[token])
             count_stack.append([num_args, num_args])
+
+        elif token in spec.uninterpreted_funcs: 
+            func = spec.uninterpreted_funcs[token]['decl']
+            num_args = func.arity()
+            eval_stack.append(func)
+            count_stack.append([num_args, num_args])
+
+        elif token in spec.macros:
+            func = spec.macros[token]['decl']
+            num_args = func.arity()
+            eval_stack.append(func)
+            count_stack.append([num_args, num_args])
+
+        # Now handle literals and variables
         else:
             if util.is_int_literal(token):
                 eval_stack.append(z3.IntVal(token))
@@ -62,9 +98,10 @@ def expr_string_to_z3(expr_str, logic, variables):
                     width = len(token[2:])
                 eval_stack.append(z3.BitVecVal(lit, width))
             elif util.is_symbol(token):
-                token_type = util.str_to_sort(variables[token])
+                token_type = util.str_to_sort(variables_in_scope[token])
                 eval_stack.append(z3.Const(token, token_type))
             else:
+                import pdb; pdb.set_trace()
                 print("expr_string_to_z3 - odd token found: {}, something's gone wrong!".format(token))
 
             if len(count_stack) != 0:

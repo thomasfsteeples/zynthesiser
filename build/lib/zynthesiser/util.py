@@ -59,18 +59,33 @@ def str_to_sort(sort_str):
             #     array_pattern = re.compile
 
     return z3_sort
+
+def contains_func(expr, func):
+    if expr.decl().eq(func):
+        return True
+    else:
+        for child in expr.children():
+            if(contains_func(child, func)):
+                return True
+    return False
+
+def contains_funcs(expr, funcs):
+    for func in funcs:
+        if contains_func(expr, func):
+            return func
+    return None
         
-def find_function_arguments(test_expr, f):
+def find_function_arguments(expr, f):
     subs = []
-    if test_expr.decl().name() == f.name():
-        subs.append(tuple(test_expr.children()))
-    for child in test_expr.children():
+    if expr.decl().name() == f.name():
+        subs.append(tuple(expr.children()))
+    for child in expr.children():
         subs.extend(find_function_arguments(child, f))
     return list(set(subs))
 
-def substitute_function_for_expression(test_expr, f, params, subs_expr):
-    subs = find_function_arguments(test_expr, f)
-    res = test_expr
+def substitute_function_for_expression(expr, f, params, subs_expr):
+    subs = find_function_arguments(expr, f)
+    res = expr
     for sub in subs:
         sub_params = list(zip(params, sub))
         expr = z3.substitute(subs_expr, sub_params)

@@ -115,15 +115,14 @@ class CFG:
 
 class Word_Generator:
 
-        def __init__(self, cfg, logic, variables):
+        def __init__(self, cfg, spec, synth_func):
             self.cfg = cfg.convert_to_chomsky_normal_form()
             self.memory = {}
             for nt in self.cfg.non_terminals():
                 self.memory[nt] = {}
 
-            self.logic = logic
-            self.variables = variables
-            self.constants = []
+            self.spec = spec
+            self.synth_func = synth_func
 
             self.original_non_terminals = cfg.non_terminals()
             self.original_non_terminals.add(self.cfg.start_symbol)
@@ -156,8 +155,8 @@ class Word_Generator:
                     simplified_res = set()
 
                     for word in res:
-                        z3_expr = z3.simplify(expr_string_to_z3(word, self.logic, self.variables))
-                        simplified_word = z3_to_expr_string(z3_expr, self.logic, self.variables)
+                        z3_expr = z3.simplify(expr_string_to_z3(word, self.spec, self.synth_func['inputs']))
+                        simplified_word = z3_to_expr_string(z3_expr, self.spec, self.synth_func['inputs'])
                         simplified_res.add(simplified_word)
 
                     for i in range(1, word_length):

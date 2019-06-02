@@ -24,6 +24,7 @@ class Symbol_Mapper(metaclass = ABCMeta):
             '*'         : '*',
             'div'       : 'div',
             'mod'       : 'mod',
+
             '<='        : '<=',
             '<'         : '<',
             '>='        : '>=',
@@ -35,12 +36,19 @@ class Symbol_Mapper(metaclass = ABCMeta):
             'bvneg'     : 'bvneg',
             'bvand'     : 'bvand',
             'bvor'      : 'bvor',
+            'bvxor'     : 'bvxor',
+
             'bvadd'     : 'bvadd',
             'bvmul'     : 'bvmul',
             'bvudiv'    : 'bvudiv',
             'bvurem'    : 'bvurem',
+
             'bvshl'     : 'bvshl',
-            'bvlshr'    : 'bvlshr'
+            'bvlshr'    : 'bvlshr',
+
+            'concat'    : 'concat',
+            # not happy about this - should be '_ extract'
+            'extract'   : 'extract'
         }
         
     }
@@ -68,6 +76,7 @@ class Symbol_Mapper(metaclass = ABCMeta):
             'div'       : lambda x, y: x / y,
             'mod'       : lambda x, y: x % y,
             'abs'       : lambda x: z3.If(x >= 0, x, -x),
+
             '<='        : lambda x, y: x <= y,
             '<'         : lambda x, y: x < y, 
             '>='        : lambda x, y: x >= y,
@@ -79,12 +88,18 @@ class Symbol_Mapper(metaclass = ABCMeta):
             'bvneg'     : lambda x: -x,
             'bvand'     : lambda x, y: x & y,
             'bvor'      : lambda x, y: x | y,
+            'bvxor'     : lambda x, y: x ^ y,
+
             'bvadd'     : lambda x, y: x + y,
             'bvmul'     : lambda x, y: x * y,
             'bvudiv'    : z3.UDiv,
             'bvurem'    : z3.URem,
+
             'bvshl'     : lambda x, y: x << y,
-            'bvlshr'    : z3.LShR
+            'bvlshr'    : z3.LShR,
+
+            'concat'    : z3.Concat,
+            'extract'   : z3.Extract
         }
         
     }
