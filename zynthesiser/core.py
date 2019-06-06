@@ -135,15 +135,15 @@ class Zynthesiser:
             # elapsed = time.time() - start
             # print("Conversion and pruning took {} seconds".format(elapsed))
             # print("{} candidates remain".format(len(pruned_candidates)))
-            start = time.time()
+            # start = time.time()
             for candidate in pruned_candidates:
                 validity = self.test_candidate(synth_func, candidate)
                 if validity == 'unsat':
                     elapsed = time.time() - start
                     print("z3 at depth {} took {} seconds".format(i, elapsed))
                     return candidate
-            elapsed = time.time() - start
-            print("z3 at depth {} took {} seconds".format(i, elapsed))
-            print()
+            # elapsed = time.time() - start
+            # print("z3 at depth {} took {} seconds".format(i, elapsed))
+            # print()
         print("No suitable function found.")
         return ''
