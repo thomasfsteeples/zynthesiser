@@ -139,8 +139,8 @@ class Zynthesiser:
             for candidate in pruned_candidates:
                 validity = self.test_candidate(synth_func, candidate)
                 if validity == 'unsat':
-                    elapsed = time.time() - start
-                    print("z3 at depth {} took {} seconds".format(i, elapsed))
+                    # elapsed = time.time() - start
+                    # print("z3 at depth {} took {} seconds".format(i, elapsed))
                     return candidate
             # elapsed = time.time() - start
             # print("z3 at depth {} took {} seconds".format(i, elapsed))
