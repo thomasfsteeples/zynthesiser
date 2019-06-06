@@ -10,13 +10,15 @@ def z3_to_expr_string(expr, spec, variables_in_scope):
     symbol_table = Symbol_Mapper.get_symbols_from_logic(spec.logic)
 
     symbol = expr.decl().name()
-    if len(expr.children()) > 0:
+    z3_children = expr.children()
+    if len(z3_children) > 0:
         children = []
-        for child in expr.children():
+        for child in z3_children:
             children.append(z3_to_expr_string(child, spec, variables_in_scope))
 
         params = []
-        for param in expr.params():
+        z3_params = expr.params()
+        for param in z3_params:
             params.append(str(param))
 
         if symbol in symbol_table:
@@ -25,6 +27,7 @@ def z3_to_expr_string(expr, spec, variables_in_scope):
             f = symbol
 
         arity = expr.decl().arity()
+
 
         if len(params) > 0:
             return (f + ' ')*(len(children) - arity + 1) + ' '.join(params) + ' ' + ' '.join(children)
@@ -60,13 +63,8 @@ def expr_string_to_z3(expr_str, spec, variables_in_scope):
     for token in tokens:
         # Handle functions first
         if token in symbol_table:
-            arg_spec = getfullargspec(symbol_table[token])
-            if arg_spec[3] != None:
-                num_default_args = len(arg_spec[3])
-            else:
-                num_default_args = 0
-            num_args = len(arg_spec[0]) - num_default_args
-            eval_stack.append(symbol_table[token])
+            num_args = symbol_table[token][1]
+            eval_stack.append(symbol_table[token][0])
             count_stack.append([num_args, num_args])
 
         elif token in spec.uninterpreted_funcs: 

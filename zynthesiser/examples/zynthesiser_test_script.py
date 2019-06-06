@@ -1,7 +1,8 @@
 import z3
 import zynthesiser as zn
+import sys
 
-spec = zn.parse_sygus_file('./sl_examples/sl_example_1.sl')
+spec = zn.parse_sygus_file(sys.argv[1])
 
 zyn = zn.Zynthesiser(spec)
-print(zyn.solve(10))
+print(zyn.solve(15))

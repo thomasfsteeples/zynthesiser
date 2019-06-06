@@ -1,6 +1,7 @@
 from collections import defaultdict
 from copy import deepcopy
 import z3
+import pathos as pa
 
 from zynthesiser.string_z3_conversion import expr_string_to_z3, z3_to_expr_string
 
@@ -110,6 +111,9 @@ class CFG:
         for symbol in removed_symbols:
             del(new_grammar.rules[symbol])
 
+        # for nt1, prod1 in new_grammar.rules:
+        #     syn
+
         # Return
         return new_grammar
 
@@ -151,23 +155,24 @@ class Word_Generator:
                             words = ["{} {}".format(w1, w2) for w1 in nt1_words for w2 in nt2_words]
                             res.extend(words)
 
-                if from_symbol in self.original_non_terminals:        
-                    simplified_res = set()
+                # if from_symbol in self.original_non_terminals:
 
-                    for word in res:
-                        z3_expr = z3.simplify(expr_string_to_z3(word, self.spec, self.synth_func['inputs']))
-                        simplified_word = z3_to_expr_string(z3_expr, self.spec, self.synth_func['inputs'])
-                        simplified_res.add(simplified_word)
+                #     simplified_res = set()
 
-                    for i in range(1, word_length):
-                        simplified_res -= set(self.generate(from_symbol, i))
+                #     for word in res:
+                #         z3_expr = z3.simplify(expr_string_to_z3(word, self.spec, self.synth_func['inputs']))
+                #         simplified_word = z3_to_expr_string(z3_expr, self.spec, self.synth_func['inputs'])
+                #         simplified_res.add(simplified_word)
 
-                    simplified_res = list(simplified_res)
-                    self.memory[from_symbol][word_length] = simplified_res
-                    return simplified_res
+                #     for i in range(1, word_length):
+                #         simplified_res -= set(self.generate(from_symbol, i))
 
-                else:
-                    self.memory[from_symbol][word_length] = res
-                    return res
-                # self.memory[from_symbol][word_length] = res
-                # return res
+                #     simplified_res = list(simplified_res)
+                #     self.memory[from_symbol][word_length] = simplified_res
+                #     return simplified_res
+
+                # else:
+                #     self.memory[from_symbol][word_length] = res
+                #     return res
+                self.memory[from_symbol][word_length] = res
+                return res

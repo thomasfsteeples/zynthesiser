@@ -101,7 +101,7 @@ class SyGuS_Extractor(SyGuS_v1Visitor):
 
 
     def visitVar_decl_cmd(self, ctx:SyGuS_v1Parser.Var_decl_cmdContext):
-        self.spec.variables[ctx.SYMBOL().getText()] = ctx.sort_expr().getText()
+        self.spec.variables[ctx.SYMBOL().getText()] = self._get_original_text(ctx.sort_expr())
     
     def visitConstraint_cmd(self, ctx:SyGuS_v1Parser.Constraint_cmdContext):
         constraint = ctx.term()
@@ -117,12 +117,15 @@ class Constraint_Extractor(TermVisitor):
         self.variables = variables
         self.funcs = funcs
 
+    def _get_original_text(self, term):
+        return term.start.getInputStream().getText(term.start.start, term.stop.stop)
+
     def visitFunc_term(self, ctx:TermParser.Func_termContext):
         symbol = ctx.SYMBOL().getText()
         if symbol in self.funcs:
             f = self.funcs[symbol]['decl']
         else:
-            f = Symbol_Mapper.get_function_from_symbol(symbol, self.logic)
+            f = Symbol_Mapper.get_function_from_symbol(symbol, self.logic)[0]
 
         children = []
         for term in ctx.term():
@@ -183,22 +186,10 @@ class Rule_Extractor(TermVisitor):
 
     def visitSymbol_g_term(self, ctx:TermParser.Symbol_g_termContext):
         return [ctx.SYMBOL().getText()]
-    
-    # def visitLet_g_term_g_term(self, ctx:TermParser.Let_g_term_g_termContext):
-    #     return self.visitChildren(ctx)
 
     # def visitConstant_g_term(self, ctx:TermParser.Constant_g_termContext):
-    #     return self.visitChildren(ctx)
+    #     return []
 
     # def visitVariable_g_term(self, ctx:TermParser.Variable_g_termContext):
-    #     return self.visitChildren(ctx)
-
-    # def visitInput_variable_g_term(self, ctx:TermParser.Input_variable_g_termContext):
-    #     return self.visitChildren(ctx)
-
-    # def visitLocal_variable_g_term(self, ctx:TermParser.Local_variable_g_termContext):
-    #     return self.visitChildren(ctx)
-    
-    # def visitLet_g_term(self, ctx:TermParser.Let_g_termContext):
     #     return self.visitChildren(ctx)
 

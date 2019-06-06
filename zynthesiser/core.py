@@ -43,8 +43,8 @@ class Zynthesiser:
         for macro in self.spec.macros:
             self._macros_decls.append(self.spec.macros[macro]['decl'])
 
-    def test_candidate(self, synth_func, candidate_word):
-        candidate = expr_string_to_z3(candidate_word, self.spec, synth_func['inputs'])
+    def test_candidate(self, synth_func, candidate):
+        # candidate = expr_string_to_z3(candidate_word, self.spec, synth_func['inputs'])
 
         goal = util.substitute_function_for_expression(
             self.spec.goal, 
@@ -115,6 +115,7 @@ class Zynthesiser:
         synth_func = self.spec.synth_funcs[list(self.spec.synth_funcs.keys())[0]]
 
         cfg = CFG(synth_func['grammar'])
+        import pdb; pdb.set_trace()
         function_generator = Word_Generator(cfg, self.spec, synth_func)
 
         for i in range(1, limit+1):
@@ -125,14 +126,22 @@ class Zynthesiser:
             words = function_generator.generate(start_symb, i)
             elapsed = time.time() - start
             print("Function generation at depth {} took {} seconds".format(i, elapsed))
-            print("{} candidates to try".format(len(words)))
-            start = time.time()
+            print("{} candidates generated".format(len(words)))
+            start_symb = function_generator.cfg.start_symbol
+            pruned_candidates = set()
             for word in words:
-                validity = self.test_candidate(synth_func, word)
+                z3_expr = z3.simplify(expr_string_to_z3(word, self.spec, synth_func['inputs']))
+                pruned_candidates.add(z3_expr)
+            elapsed = time.time() - start
+            print("Conversion and pruning took {} seconds".format(elapsed))
+            print("{} candidates remain".format(len(pruned_candidates)))
+            start = time.time()
+            for candidate in pruned_candidates:
+                validity = self.test_candidate(synth_func, candidate)
                 if validity == 'unsat':
                     elapsed = time.time() - start
                     print("z3 at depth {} took {} seconds".format(i, elapsed))
-                    return word
+                    return candidate
             elapsed = time.time() - start
             print("z3 at depth {} took {} seconds".format(i, elapsed))
             print()

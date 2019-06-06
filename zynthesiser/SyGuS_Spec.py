@@ -6,6 +6,7 @@ from zynthesiser.parsers import Constraint_Extractor
 import z3
 import zynthesiser.util as util
 from zynthesiser.string_z3_conversion import expr_string_to_z3
+import re
 
 class Text_SyGuS_Spec:
     def __init__(self):
@@ -87,13 +88,16 @@ class SyGuS_Spec:
                 inputs.append(z3.Const(text_input, input_sorts[i]))
 
             macro_declaration = z3.Function(macro, *input_sorts, output_sort)
+            macro_definition = current_macro['definition'].replace('(', "").replace(')', "")
+            macro_definition = ' '.join(macro_definition.split())
+
             macros[macro] = {
                 'decl'              : macro_declaration, 
                 'inputs'            : current_macro['inputs'],
                 'z3_inputs'         : inputs,
                 'output_sort'       : current_macro['output_sort'],
                 'z3_output_sort'    : output_sort,
-                'definition'        : current_macro['definition'].strip('(').strip(')')
+                'definition'        : macro_definition
             }
 
         return macros

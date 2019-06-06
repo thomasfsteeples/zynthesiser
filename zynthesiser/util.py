@@ -22,7 +22,7 @@ def is_bool_literal(str):
         return False
 
 def is_bv_literal(str):
-    bv_pattern = re.compile(r"^(?:#b[01]+)|(?:#x[0-9a-f]+)$")
+    bv_pattern = re.compile(r"^(?:#b[01]+)|(?:#x[0-9a-fA-F]+)$")
     if bv_pattern.match(str) is not None:
         return True
     else:
