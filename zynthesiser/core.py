@@ -118,22 +118,23 @@ class Zynthesiser:
         function_generator = Word_Generator(cfg, self.spec, synth_func)
 
         for i in range(1, limit+1):
-            print("Entered depth {}".format(i))
-            start = time.time()
+            # print("Entered depth {}".format(i))
+            # start = time.time()
 
             start_symb = function_generator.cfg.start_symbol
             words = function_generator.generate(start_symb, i)
-            elapsed = time.time() - start
-            print("Function generation at depth {} took {} seconds".format(i, elapsed))
-            print("{} candidates generated".format(len(words)))
+            # elapsed = time.time() - start
+            # print("Function generation at depth {} took {} seconds".format(i, elapsed))
+            # print("{} candidates generated".format(len(words)))
             start_symb = function_generator.cfg.start_symbol
+            # start = time.time()
             pruned_candidates = set()
             for word in words:
                 z3_expr = z3.simplify(expr_string_to_z3(word, self.spec, synth_func['inputs']))
                 pruned_candidates.add(z3_expr)
-            elapsed = time.time() - start
-            print("Conversion and pruning took {} seconds".format(elapsed))
-            print("{} candidates remain".format(len(pruned_candidates)))
+            # elapsed = time.time() - start
+            # print("Conversion and pruning took {} seconds".format(elapsed))
+            # print("{} candidates remain".format(len(pruned_candidates)))
             start = time.time()
             for candidate in pruned_candidates:
                 validity = self.test_candidate(synth_func, candidate)
