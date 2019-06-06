@@ -1,7 +1,6 @@
 from collections import defaultdict
 from copy import deepcopy
 import z3
-import pathos as pa
 
 from zynthesiser.string_z3_conversion import expr_string_to_z3, z3_to_expr_string
 
