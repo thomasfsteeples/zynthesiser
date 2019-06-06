@@ -115,7 +115,6 @@ class Zynthesiser:
         synth_func = self.spec.synth_funcs[list(self.spec.synth_funcs.keys())[0]]
 
         cfg = CFG(synth_func['grammar'])
-        import pdb; pdb.set_trace()
         function_generator = Word_Generator(cfg, self.spec, synth_func)
 
         for i in range(1, limit+1):
