@@ -20,7 +20,11 @@ cd zynthesiser
 pip install .
 ```
 
-
+You can test that your installation has been successful by running one of the examples:
+```
+cd zynthesiser/examples
+python zynthesiser_test_script.py ./sl_examples/sl_example_0.sl
+```
 
 ## Authors
 
