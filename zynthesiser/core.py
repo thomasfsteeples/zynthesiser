@@ -1,5 +1,3 @@
-# Parsing Dependencies
-# External Dependencies
 import sys
 import time
 
@@ -11,9 +9,7 @@ from zynthesiser.CFG import CFG, Word_Generator
 from zynthesiser.grammars.SyGuS_v1Lexer import SyGuS_v1Lexer
 from zynthesiser.grammars.SyGuS_v1Parser import SyGuS_v1Parser
 from zynthesiser.parsers import SyGuS_Extractor
-# Internal Dependencies
-from zynthesiser.string_z3_conversion import (expr_string_to_z3,
-                                              z3_to_expr_string)
+from zynthesiser.string_z3_conversion import expr_string_to_z3, z3_to_expr_string
 from zynthesiser.SyGuS_Spec import SyGuS_Spec, Text_SyGuS_Spec
 
 
@@ -34,6 +30,7 @@ def parse_sygus_file(sygus_file):
 
 
 class Zynthesiser:
+
     def __init__(self, spec):
         self.spec = spec
         if len(spec.variables) > 0:
@@ -48,9 +45,10 @@ class Zynthesiser:
     def test_candidate(self, synth_func, candidate):
         # candidate = expr_string_to_z3(candidate_word, self.spec, synth_func['inputs'])
 
-        goal = util.substitute_function_for_expression(
-            self.spec.goal, synth_func["decl"], synth_func["z3_inputs"], candidate
-        )
+        goal = util.substitute_function_for_expression(self.spec.goal,
+                                                       synth_func["decl"],
+                                                       synth_func["z3_inputs"],
+                                                       candidate)
 
         while True:
             macro_decl = util.contains_funcs(goal, self._macros_decls)
@@ -58,36 +56,27 @@ class Zynthesiser:
                 break
             macro_name = macro_decl.name()
             macro = self.spec.macros[macro_name]
-            macro_def = expr_string_to_z3(
-                macro["definition"], self.spec, macro["inputs"]
-            )
+            macro_def = expr_string_to_z3(macro["definition"], self.spec,
+                                          macro["inputs"])
             macro_params = macro["z3_inputs"]
             goal = util.substitute_function_for_expression(
-                goal, macro_decl, macro_params, macro_def
-            )
+                goal, macro_decl, macro_params, macro_def)
 
         if self.universally_quantified:
-
             counter_example_constraints = [z3.BoolVal(True)]
-
             for counter_example in self.counter_examples:
                 counter_example_constraints.append(
                     z3.simplify(
                         z3.substitute(
-                            goal, list(zip(self.spec.z3_variables, counter_example))
-                        )
-                    )
-                )
-
+                            goal,
+                            list(zip(self.spec.z3_variables,
+                                     counter_example)))))
             counter_example_constraint = z3.simplify(
-                z3.And(*counter_example_constraints)
-            )
-
+                z3.And(*counter_example_constraints))
             if counter_example_constraint.eq(z3.BoolVal(False)):
                 return "sat"
-            if ~counter_example_constraint.eq(z3.BoolVal(True)):
+            if not counter_example_constraint.eq(z3.BoolVal(True)):
                 goal = z3.And(goal, counter_example_constraint)
-
         else:
             if goal.eq(z3.BoolVal(True)):
                 return "unsat"
@@ -116,7 +105,8 @@ class Zynthesiser:
             )
             return ""
 
-        synth_func = self.spec.synth_funcs[list(self.spec.synth_funcs.keys())[0]]
+        synth_func = self.spec.synth_funcs[list(
+            self.spec.synth_funcs.keys())[0]]
 
         cfg = CFG(synth_func["grammar"])
         function_generator = Word_Generator(cfg, self.spec, synth_func)
@@ -128,15 +118,15 @@ class Zynthesiser:
             start_symb = function_generator.cfg.start_symbol
             words = function_generator.generate(start_symb, i)
             elapsed = time.time() - start
-            print("Function generation at depth {} took {} seconds".format(i, elapsed))
+            print("Function generation at depth {} took {} seconds".format(
+                i, elapsed))
             print("{} candidates generated".format(len(words)))
             start_symb = function_generator.cfg.start_symbol
             start = time.time()
             pruned_candidates = set()
             for word in words:
                 z3_expr = z3.simplify(
-                    expr_string_to_z3(word, self.spec, synth_func["inputs"])
-                )
+                    expr_string_to_z3(word, self.spec, synth_func["inputs"]))
                 pruned_candidates.add(z3_expr)
             elapsed = time.time() - start
             print("Conversion and pruning took {} seconds".format(elapsed))
@@ -147,7 +137,8 @@ class Zynthesiser:
                 if validity == "unsat":
                     elapsed = time.time() - start
                     print("z3 at depth {} took {} seconds".format(i, elapsed))
-                    print("Made {} calls to z3".format(len(self.counter_examples)))
+                    print("Made {} calls to z3".format(
+                        len(self.counter_examples)))
                     return candidate
             elapsed = time.time() - start
             print("z3 at depth {} took {} seconds".format(i, elapsed))

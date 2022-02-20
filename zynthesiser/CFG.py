@@ -3,8 +3,7 @@ from copy import deepcopy
 
 import z3
 
-from zynthesiser.string_z3_conversion import (expr_string_to_z3,
-                                              z3_to_expr_string)
+from zynthesiser.string_z3_conversion import expr_string_to_z3, z3_to_expr_string
 
 
 # https://stackoverflow.com/questions/952914/how-to-make-a-flat-list-out-of-list-of-lists
