@@ -1,9 +1,10 @@
 # Generated from Term.g4 by ANTLR 4.7.2
 # encoding: utf-8
-from antlr4 import *
+import sys
 from io import StringIO
 from typing.io import TextIO
-import sys
+
+from antlr4 import *
 
 
 def serializedATN():
@@ -11,7 +12,7 @@ def serializedATN():
         buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\32")
         buf.write("\u0097\4\2\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7")
         buf.write("\4\b\t\b\4\t\t\t\3\2\3\2\3\2\3\2\3\2\6\2\30\n\2\r\2\16")
-        buf.write("\2\31\3\2\3\2\3\2\3\3\3\3\3\3\7\3\"\n\3\f\3\16\3%\13\3")
+        buf.write('\2\31\3\2\3\2\3\2\3\3\3\3\3\3\7\3"\n\3\f\3\16\3%\13\3')
         buf.write("\3\3\3\3\3\3\3\3\5\3+\n\3\3\4\3\4\3\4\3\4\3\4\3\4\3\4")
         buf.write("\3\4\3\4\6\4\66\n\4\r\4\16\4\67\3\4\3\4\3\4\3\4\3\5\3")
         buf.write("\5\3\5\7\5A\n\5\f\5\16\5D\13\5\3\5\3\5\3\5\3\5\3\5\3\5")
@@ -27,10 +28,10 @@ def serializedATN():
         buf.write("\23\24\7\21\2\2\24\25\5\f\7\2\25\27\7\17\2\2\26\30\5\b")
         buf.write("\5\2\27\26\3\2\2\2\30\31\3\2\2\2\31\27\3\2\2\2\31\32\3")
         buf.write("\2\2\2\32\33\3\2\2\2\33\34\7\20\2\2\34\35\7\20\2\2\35")
-        buf.write("\3\3\2\2\2\36\37\7\17\2\2\37#\7\21\2\2 \"\5\4\3\2! \3")
-        buf.write("\2\2\2\"%\3\2\2\2#!\3\2\2\2#$\3\2\2\2$&\3\2\2\2%#\3\2")
-        buf.write("\2\2&+\7\20\2\2\'+\5\16\b\2(+\7\21\2\2)+\5\6\4\2*\36\3")
-        buf.write("\2\2\2*\'\3\2\2\2*(\3\2\2\2*)\3\2\2\2+\5\3\2\2\2,-\7\17")
+        buf.write('\3\3\2\2\2\36\37\7\17\2\2\37#\7\21\2\2 "\5\4\3\2! \3')
+        buf.write('\2\2\2"%\3\2\2\2#!\3\2\2\2#$\3\2\2\2$&\3\2\2\2%#\3\2')
+        buf.write("\2\2&+\7\20\2\2'+\5\16\b\2(+\7\21\2\2)+\5\6\4\2*\36\3")
+        buf.write("\2\2\2*'\3\2\2\2*(\3\2\2\2*)\3\2\2\2+\5\3\2\2\2,-\7\17")
         buf.write("\2\2-.\7\3\2\2.\65\7\17\2\2/\60\7\17\2\2\60\61\7\21\2")
         buf.write("\2\61\62\5\f\7\2\62\63\5\4\3\2\63\64\7\20\2\2\64\66\3")
         buf.write("\2\2\2\65/\3\2\2\2\66\67\3\2\2\2\67\65\3\2\2\2\678\3\2")
@@ -66,27 +67,61 @@ def serializedATN():
         return buf.getvalue()
 
 
-class TermParser ( Parser ):
+class TermParser(Parser):
 
     grammarFileName = "Term.g4"
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
-    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]
+    decisionsToDFA = [DFA(ds, i) for i, ds in enumerate(atn.decisionToState)]
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'let'", "'Constant'", "'Variable'", "'InputVariable'", 
-                     "'LocalVariable'", "'Int'", "'Bool'", "'Real'", "'BitVec'", 
-                     "'Enum'", "'Array'", "'::'", "'('", "')'" ]
+    literalNames = [
+        "<INVALID>",
+        "'let'",
+        "'Constant'",
+        "'Variable'",
+        "'InputVariable'",
+        "'LocalVariable'",
+        "'Int'",
+        "'Bool'",
+        "'Real'",
+        "'BitVec'",
+        "'Enum'",
+        "'Array'",
+        "'::'",
+        "'('",
+        "')'",
+    ]
 
-    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "LEFT_PARENS", "RIGHT_PARENS", "SYMBOL", 
-                      "QUOTED_LITERAL", "POSITIVE_INT_CONST", "NEGATIVE_INT_CONST", 
-                      "REAL_CONST", "BOOL_CONST", "BV_CONST", "COMMENT", 
-                      "WHITESPACE", "NEWLINE" ]
+    symbolicNames = [
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "LEFT_PARENS",
+        "RIGHT_PARENS",
+        "SYMBOL",
+        "QUOTED_LITERAL",
+        "POSITIVE_INT_CONST",
+        "NEGATIVE_INT_CONST",
+        "REAL_CONST",
+        "BOOL_CONST",
+        "BV_CONST",
+        "COMMENT",
+        "WHITESPACE",
+        "NEWLINE",
+    ]
 
     RULE_nt_def = 0
     RULE_term = 1
@@ -97,51 +132,59 @@ class TermParser ( Parser ):
     RULE_literal = 6
     RULE_enum_const = 7
 
-    ruleNames =  [ "nt_def", "term", "let_term", "g_term", "let_g_term", 
-                   "sort_expr", "literal", "enum_const" ]
+    ruleNames = [
+        "nt_def",
+        "term",
+        "let_term",
+        "g_term",
+        "let_g_term",
+        "sort_expr",
+        "literal",
+        "enum_const",
+    ]
 
     EOF = Token.EOF
-    T__0=1
-    T__1=2
-    T__2=3
-    T__3=4
-    T__4=5
-    T__5=6
-    T__6=7
-    T__7=8
-    T__8=9
-    T__9=10
-    T__10=11
-    T__11=12
-    LEFT_PARENS=13
-    RIGHT_PARENS=14
-    SYMBOL=15
-    QUOTED_LITERAL=16
-    POSITIVE_INT_CONST=17
-    NEGATIVE_INT_CONST=18
-    REAL_CONST=19
-    BOOL_CONST=20
-    BV_CONST=21
-    COMMENT=22
-    WHITESPACE=23
-    NEWLINE=24
+    T__0 = 1
+    T__1 = 2
+    T__2 = 3
+    T__3 = 4
+    T__4 = 5
+    T__5 = 6
+    T__6 = 7
+    T__7 = 8
+    T__8 = 9
+    T__9 = 10
+    T__10 = 11
+    T__11 = 12
+    LEFT_PARENS = 13
+    RIGHT_PARENS = 14
+    SYMBOL = 15
+    QUOTED_LITERAL = 16
+    POSITIVE_INT_CONST = 17
+    NEGATIVE_INT_CONST = 18
+    REAL_CONST = 19
+    BOOL_CONST = 20
+    BV_CONST = 21
+    COMMENT = 22
+    WHITESPACE = 23
+    NEWLINE = 24
 
-    def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
+    def __init__(self, input: TokenStream, output: TextIO = sys.stdout):
         super().__init__(input, output)
         self.checkVersion("4.7.2")
-        self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
+        self._interp = ParserATNSimulator(
+            self, self.atn, self.decisionsToDFA, self.sharedContextCache
+        )
         self._predicates = None
 
-
-
-
     class Nt_defContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LEFT_PARENS(self, i:int=None):
+        def LEFT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(TermParser.LEFT_PARENS)
             else:
@@ -151,39 +194,34 @@ class TermParser ( Parser ):
             return self.getToken(TermParser.SYMBOL, 0)
 
         def sort_expr(self):
-            return self.getTypedRuleContext(TermParser.Sort_exprContext,0)
+            return self.getTypedRuleContext(TermParser.Sort_exprContext, 0)
 
-
-        def RIGHT_PARENS(self, i:int=None):
+        def RIGHT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(TermParser.RIGHT_PARENS)
             else:
                 return self.getToken(TermParser.RIGHT_PARENS, i)
 
-        def g_term(self, i:int=None):
+        def g_term(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(TermParser.G_termContext)
             else:
-                return self.getTypedRuleContext(TermParser.G_termContext,i)
-
+                return self.getTypedRuleContext(TermParser.G_termContext, i)
 
         def getRuleIndex(self):
             return TermParser.RULE_nt_def
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitNt_def" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitNt_def"):
                 return visitor.visitNt_def(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def nt_def(self):
 
         localctx = TermParser.Nt_defContext(self, self._ctx, self.state)
         self.enterRule(localctx, 0, self.RULE_nt_def)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 16
@@ -194,16 +232,33 @@ class TermParser ( Parser ):
             self.sort_expr()
             self.state = 19
             self.match(TermParser.LEFT_PARENS)
-            self.state = 21 
+            self.state = 21
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
                 self.state = 20
                 self.g_term()
-                self.state = 23 
+                self.state = 23
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << TermParser.LEFT_PARENS) | (1 << TermParser.SYMBOL) | (1 << TermParser.POSITIVE_INT_CONST) | (1 << TermParser.NEGATIVE_INT_CONST) | (1 << TermParser.REAL_CONST) | (1 << TermParser.BOOL_CONST) | (1 << TermParser.BV_CONST))) != 0)):
+                if not (
+                    (
+                        ((_la) & ~0x3F) == 0
+                        and (
+                            (1 << _la)
+                            & (
+                                (1 << TermParser.LEFT_PARENS)
+                                | (1 << TermParser.SYMBOL)
+                                | (1 << TermParser.POSITIVE_INT_CONST)
+                                | (1 << TermParser.NEGATIVE_INT_CONST)
+                                | (1 << TermParser.REAL_CONST)
+                                | (1 << TermParser.BOOL_CONST)
+                                | (1 << TermParser.BV_CONST)
+                            )
+                        )
+                        != 0
+                    )
+                ):
                     break
 
             self.state = 25
@@ -218,109 +273,104 @@ class TermParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class TermContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
-
 
         def getRuleIndex(self):
             return TermParser.RULE_term
 
-     
-        def copyFrom(self, ctx:ParserRuleContext):
+        def copyFrom(self, ctx: ParserRuleContext):
             super().copyFrom(ctx)
 
-
-
     class Lit_termContext(TermContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.TermContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.TermContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def literal(self):
-            return self.getTypedRuleContext(TermParser.LiteralContext,0)
+            return self.getTypedRuleContext(TermParser.LiteralContext, 0)
 
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLit_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitLit_term"):
                 return visitor.visitLit_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Let_term_termContext(TermContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.TermContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.TermContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def let_term(self):
-            return self.getTypedRuleContext(TermParser.Let_termContext,0)
+            return self.getTypedRuleContext(TermParser.Let_termContext, 0)
 
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLet_term_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitLet_term_term"):
                 return visitor.visitLet_term_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Symbol_termContext(TermContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.TermContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.TermContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def SYMBOL(self):
             return self.getToken(TermParser.SYMBOL, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSymbol_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitSymbol_term"):
                 return visitor.visitSymbol_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Func_termContext(TermContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.TermContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.TermContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def LEFT_PARENS(self):
             return self.getToken(TermParser.LEFT_PARENS, 0)
+
         def SYMBOL(self):
             return self.getToken(TermParser.SYMBOL, 0)
+
         def RIGHT_PARENS(self):
             return self.getToken(TermParser.RIGHT_PARENS, 0)
-        def term(self, i:int=None):
+
+        def term(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(TermParser.TermContext)
             else:
-                return self.getTypedRuleContext(TermParser.TermContext,i)
+                return self.getTypedRuleContext(TermParser.TermContext, i)
 
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitFunc_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitFunc_term"):
                 return visitor.visitFunc_term(self)
             else:
                 return visitor.visitChildren(self)
-
-
 
     def term(self):
 
         localctx = TermParser.TermContext(self, self._ctx, self.state)
         self.enterRule(localctx, 2, self.RULE_term)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.state = 40
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,2,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input, 2, self._ctx)
             if la_ == 1:
                 localctx = TermParser.Func_termContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
@@ -331,7 +381,18 @@ class TermParser ( Parser ):
                 self.state = 33
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << TermParser.LEFT_PARENS) | (1 << TermParser.SYMBOL) | (1 << TermParser.POSITIVE_INT_CONST) | (1 << TermParser.NEGATIVE_INT_CONST) | (1 << TermParser.REAL_CONST) | (1 << TermParser.BOOL_CONST) | (1 << TermParser.BV_CONST))) != 0):
+                while ((_la) & ~0x3F) == 0 and (
+                    (1 << _la)
+                    & (
+                        (1 << TermParser.LEFT_PARENS)
+                        | (1 << TermParser.SYMBOL)
+                        | (1 << TermParser.POSITIVE_INT_CONST)
+                        | (1 << TermParser.NEGATIVE_INT_CONST)
+                        | (1 << TermParser.REAL_CONST)
+                        | (1 << TermParser.BOOL_CONST)
+                        | (1 << TermParser.BV_CONST)
+                    )
+                ) != 0:
                     self.state = 30
                     self.term()
                     self.state = 35
@@ -363,7 +424,6 @@ class TermParser ( Parser ):
                 self.let_term()
                 pass
 
-
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -372,62 +432,57 @@ class TermParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Let_termContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LEFT_PARENS(self, i:int=None):
+        def LEFT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(TermParser.LEFT_PARENS)
             else:
                 return self.getToken(TermParser.LEFT_PARENS, i)
 
-        def RIGHT_PARENS(self, i:int=None):
+        def RIGHT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(TermParser.RIGHT_PARENS)
             else:
                 return self.getToken(TermParser.RIGHT_PARENS, i)
 
-        def term(self, i:int=None):
+        def term(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(TermParser.TermContext)
             else:
-                return self.getTypedRuleContext(TermParser.TermContext,i)
+                return self.getTypedRuleContext(TermParser.TermContext, i)
 
-
-        def SYMBOL(self, i:int=None):
+        def SYMBOL(self, i: int = None):
             if i is None:
                 return self.getTokens(TermParser.SYMBOL)
             else:
                 return self.getToken(TermParser.SYMBOL, i)
 
-        def sort_expr(self, i:int=None):
+        def sort_expr(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(TermParser.Sort_exprContext)
             else:
-                return self.getTypedRuleContext(TermParser.Sort_exprContext,i)
-
+                return self.getTypedRuleContext(TermParser.Sort_exprContext, i)
 
         def getRuleIndex(self):
             return TermParser.RULE_let_term
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLet_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitLet_term"):
                 return visitor.visitLet_term(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def let_term(self):
 
         localctx = TermParser.Let_termContext(self, self._ctx, self.state)
         self.enterRule(localctx, 4, self.RULE_let_term)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 42
@@ -436,7 +491,7 @@ class TermParser ( Parser ):
             self.match(TermParser.T__0)
             self.state = 44
             self.match(TermParser.LEFT_PARENS)
-            self.state = 51 
+            self.state = 51
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
@@ -450,10 +505,10 @@ class TermParser ( Parser ):
                 self.term()
                 self.state = 49
                 self.match(TermParser.RIGHT_PARENS)
-                self.state = 53 
+                self.state = 53
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (_la==TermParser.LEFT_PARENS):
+                if not (_la == TermParser.LEFT_PARENS):
                     break
 
             self.state = 55
@@ -470,193 +525,192 @@ class TermParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class G_termContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
-
 
         def getRuleIndex(self):
             return TermParser.RULE_g_term
 
-     
-        def copyFrom(self, ctx:ParserRuleContext):
+        def copyFrom(self, ctx: ParserRuleContext):
             super().copyFrom(ctx)
 
-
-
     class Symbol_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def SYMBOL(self):
             return self.getToken(TermParser.SYMBOL, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSymbol_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitSymbol_g_term"):
                 return visitor.visitSymbol_g_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Lit_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def literal(self):
-            return self.getTypedRuleContext(TermParser.LiteralContext,0)
+            return self.getTypedRuleContext(TermParser.LiteralContext, 0)
 
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLit_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitLit_g_term"):
                 return visitor.visitLit_g_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Let_g_term_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def let_g_term(self):
-            return self.getTypedRuleContext(TermParser.Let_g_termContext,0)
+            return self.getTypedRuleContext(TermParser.Let_g_termContext, 0)
 
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLet_g_term_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitLet_g_term_g_term"):
                 return visitor.visitLet_g_term_g_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Variable_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def LEFT_PARENS(self):
             return self.getToken(TermParser.LEFT_PARENS, 0)
+
         def sort_expr(self):
-            return self.getTypedRuleContext(TermParser.Sort_exprContext,0)
+            return self.getTypedRuleContext(TermParser.Sort_exprContext, 0)
 
         def RIGHT_PARENS(self):
             return self.getToken(TermParser.RIGHT_PARENS, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitVariable_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitVariable_g_term"):
                 return visitor.visitVariable_g_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Constant_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def LEFT_PARENS(self):
             return self.getToken(TermParser.LEFT_PARENS, 0)
+
         def sort_expr(self):
-            return self.getTypedRuleContext(TermParser.Sort_exprContext,0)
+            return self.getTypedRuleContext(TermParser.Sort_exprContext, 0)
 
         def RIGHT_PARENS(self):
             return self.getToken(TermParser.RIGHT_PARENS, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitConstant_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitConstant_g_term"):
                 return visitor.visitConstant_g_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Input_variable_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def LEFT_PARENS(self):
             return self.getToken(TermParser.LEFT_PARENS, 0)
+
         def sort_expr(self):
-            return self.getTypedRuleContext(TermParser.Sort_exprContext,0)
+            return self.getTypedRuleContext(TermParser.Sort_exprContext, 0)
 
         def RIGHT_PARENS(self):
             return self.getToken(TermParser.RIGHT_PARENS, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitInput_variable_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitInput_variable_g_term"):
                 return visitor.visitInput_variable_g_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Local_variable_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def LEFT_PARENS(self):
             return self.getToken(TermParser.LEFT_PARENS, 0)
+
         def sort_expr(self):
-            return self.getTypedRuleContext(TermParser.Sort_exprContext,0)
+            return self.getTypedRuleContext(TermParser.Sort_exprContext, 0)
 
         def RIGHT_PARENS(self):
             return self.getToken(TermParser.RIGHT_PARENS, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLocal_variable_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitLocal_variable_g_term"):
                 return visitor.visitLocal_variable_g_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Func_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def LEFT_PARENS(self):
             return self.getToken(TermParser.LEFT_PARENS, 0)
+
         def SYMBOL(self):
             return self.getToken(TermParser.SYMBOL, 0)
+
         def RIGHT_PARENS(self):
             return self.getToken(TermParser.RIGHT_PARENS, 0)
-        def g_term(self, i:int=None):
+
+        def g_term(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(TermParser.G_termContext)
             else:
-                return self.getTypedRuleContext(TermParser.G_termContext,i)
+                return self.getTypedRuleContext(TermParser.G_termContext, i)
 
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitFunc_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitFunc_g_term"):
                 return visitor.visitFunc_g_term(self)
             else:
                 return visitor.visitChildren(self)
-
-
 
     def g_term(self):
 
         localctx = TermParser.G_termContext(self, self._ctx, self.state)
         self.enterRule(localctx, 6, self.RULE_g_term)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.state = 91
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,5,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input, 5, self._ctx)
             if la_ == 1:
                 localctx = TermParser.Func_g_termContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
@@ -667,7 +721,18 @@ class TermParser ( Parser ):
                 self.state = 64
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << TermParser.LEFT_PARENS) | (1 << TermParser.SYMBOL) | (1 << TermParser.POSITIVE_INT_CONST) | (1 << TermParser.NEGATIVE_INT_CONST) | (1 << TermParser.REAL_CONST) | (1 << TermParser.BOOL_CONST) | (1 << TermParser.BV_CONST))) != 0):
+                while ((_la) & ~0x3F) == 0 and (
+                    (1 << _la)
+                    & (
+                        (1 << TermParser.LEFT_PARENS)
+                        | (1 << TermParser.SYMBOL)
+                        | (1 << TermParser.POSITIVE_INT_CONST)
+                        | (1 << TermParser.NEGATIVE_INT_CONST)
+                        | (1 << TermParser.REAL_CONST)
+                        | (1 << TermParser.BOOL_CONST)
+                        | (1 << TermParser.BV_CONST)
+                    )
+                ) != 0:
                     self.state = 61
                     self.g_term()
                     self.state = 66
@@ -751,7 +816,6 @@ class TermParser ( Parser ):
                 self.match(TermParser.RIGHT_PARENS)
                 pass
 
-
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -760,62 +824,57 @@ class TermParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Let_g_termContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LEFT_PARENS(self, i:int=None):
+        def LEFT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(TermParser.LEFT_PARENS)
             else:
                 return self.getToken(TermParser.LEFT_PARENS, i)
 
-        def RIGHT_PARENS(self, i:int=None):
+        def RIGHT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(TermParser.RIGHT_PARENS)
             else:
                 return self.getToken(TermParser.RIGHT_PARENS, i)
 
-        def g_term(self, i:int=None):
+        def g_term(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(TermParser.G_termContext)
             else:
-                return self.getTypedRuleContext(TermParser.G_termContext,i)
+                return self.getTypedRuleContext(TermParser.G_termContext, i)
 
-
-        def SYMBOL(self, i:int=None):
+        def SYMBOL(self, i: int = None):
             if i is None:
                 return self.getTokens(TermParser.SYMBOL)
             else:
                 return self.getToken(TermParser.SYMBOL, i)
 
-        def sort_expr(self, i:int=None):
+        def sort_expr(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(TermParser.Sort_exprContext)
             else:
-                return self.getTypedRuleContext(TermParser.Sort_exprContext,i)
-
+                return self.getTypedRuleContext(TermParser.Sort_exprContext, i)
 
         def getRuleIndex(self):
             return TermParser.RULE_let_g_term
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLet_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitLet_g_term"):
                 return visitor.visitLet_g_term(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def let_g_term(self):
 
         localctx = TermParser.Let_g_termContext(self, self._ctx, self.state)
         self.enterRule(localctx, 8, self.RULE_let_g_term)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 93
@@ -824,7 +883,7 @@ class TermParser ( Parser ):
             self.match(TermParser.T__0)
             self.state = 95
             self.match(TermParser.LEFT_PARENS)
-            self.state = 102 
+            self.state = 102
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
@@ -838,10 +897,10 @@ class TermParser ( Parser ):
                 self.g_term()
                 self.state = 100
                 self.match(TermParser.RIGHT_PARENS)
-                self.state = 104 
+                self.state = 104
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (_la==TermParser.LEFT_PARENS):
+                if not (_la == TermParser.LEFT_PARENS):
                     break
 
             self.state = 106
@@ -858,14 +917,14 @@ class TermParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Sort_exprContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LEFT_PARENS(self, i:int=None):
+        def LEFT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(TermParser.LEFT_PARENS)
             else:
@@ -874,46 +933,42 @@ class TermParser ( Parser ):
         def POSITIVE_INT_CONST(self):
             return self.getToken(TermParser.POSITIVE_INT_CONST, 0)
 
-        def RIGHT_PARENS(self, i:int=None):
+        def RIGHT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(TermParser.RIGHT_PARENS)
             else:
                 return self.getToken(TermParser.RIGHT_PARENS, i)
 
-        def SYMBOL(self, i:int=None):
+        def SYMBOL(self, i: int = None):
             if i is None:
                 return self.getTokens(TermParser.SYMBOL)
             else:
                 return self.getToken(TermParser.SYMBOL, i)
 
-        def sort_expr(self, i:int=None):
+        def sort_expr(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(TermParser.Sort_exprContext)
             else:
-                return self.getTypedRuleContext(TermParser.Sort_exprContext,i)
-
+                return self.getTypedRuleContext(TermParser.Sort_exprContext, i)
 
         def getRuleIndex(self):
             return TermParser.RULE_sort_expr
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSort_expr" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitSort_expr"):
                 return visitor.visitSort_expr(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def sort_expr(self):
 
         localctx = TermParser.Sort_exprContext(self, self._ctx, self.state)
         self.enterRule(localctx, 10, self.RULE_sort_expr)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.state = 134
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,8,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input, 8, self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 110
@@ -952,16 +1007,16 @@ class TermParser ( Parser ):
                 self.match(TermParser.T__9)
                 self.state = 119
                 self.match(TermParser.LEFT_PARENS)
-                self.state = 121 
+                self.state = 121
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
                     self.state = 120
                     self.match(TermParser.SYMBOL)
-                    self.state = 123 
+                    self.state = 123
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    if not (_la==TermParser.SYMBOL):
+                    if not (_la == TermParser.SYMBOL):
                         break
 
                 self.state = 125
@@ -990,7 +1045,6 @@ class TermParser ( Parser ):
                 self.match(TermParser.SYMBOL)
                 pass
 
-
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -999,120 +1053,114 @@ class TermParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class LiteralContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
-
 
         def getRuleIndex(self):
             return TermParser.RULE_literal
 
-     
-        def copyFrom(self, ctx:ParserRuleContext):
+        def copyFrom(self, ctx: ParserRuleContext):
             super().copyFrom(ctx)
 
-
-
     class Real_literalContext(LiteralContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.LiteralContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.LiteralContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def REAL_CONST(self):
             return self.getToken(TermParser.REAL_CONST, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitReal_literal" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitReal_literal"):
                 return visitor.visitReal_literal(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class N_int_literalContext(LiteralContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.LiteralContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.LiteralContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def NEGATIVE_INT_CONST(self):
             return self.getToken(TermParser.NEGATIVE_INT_CONST, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitN_int_literal" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitN_int_literal"):
                 return visitor.visitN_int_literal(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Bool_literalContext(LiteralContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.LiteralContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.LiteralContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def BOOL_CONST(self):
             return self.getToken(TermParser.BOOL_CONST, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitBool_literal" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitBool_literal"):
                 return visitor.visitBool_literal(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Bv_literalContext(LiteralContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.LiteralContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.LiteralContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def BV_CONST(self):
             return self.getToken(TermParser.BV_CONST, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitBv_literal" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitBv_literal"):
                 return visitor.visitBv_literal(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class P_int_literalContext(LiteralContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.LiteralContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.LiteralContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def POSITIVE_INT_CONST(self):
             return self.getToken(TermParser.POSITIVE_INT_CONST, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitP_int_literal" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitP_int_literal"):
                 return visitor.visitP_int_literal(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Enum_literalContext(LiteralContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a TermParser.LiteralContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a TermParser.LiteralContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def enum_const(self):
-            return self.getTypedRuleContext(TermParser.Enum_constContext,0)
+            return self.getTypedRuleContext(TermParser.Enum_constContext, 0)
 
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitEnum_literal" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitEnum_literal"):
                 return visitor.visitEnum_literal(self)
             else:
                 return visitor.visitChildren(self)
-
-
 
     def literal(self):
 
@@ -1169,14 +1217,14 @@ class TermParser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Enum_constContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def SYMBOL(self, i:int=None):
+        def SYMBOL(self, i: int = None):
             if i is None:
                 return self.getTokens(TermParser.SYMBOL)
             else:
@@ -1185,14 +1233,11 @@ class TermParser ( Parser ):
         def getRuleIndex(self):
             return TermParser.RULE_enum_const
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitEnum_const" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitEnum_const"):
                 return visitor.visitEnum_const(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def enum_const(self):
 
@@ -1213,8 +1258,3 @@ class TermParser ( Parser ):
         finally:
             self.exitRule()
         return localctx
-
-
-
-
-

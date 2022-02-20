@@ -1,5 +1,7 @@
 import re
+
 import z3
+
 
 def is_int_literal(str):
     int_pattern = re.compile(r"^-?[0-9]+$")
@@ -8,18 +10,21 @@ def is_int_literal(str):
     else:
         return False
 
+
 def is_real_literal(str):
     real_pattern = re.compile(r"^-?[0-9]+\.[0-9]+$")
     if real_pattern.match(str) is not None:
         return True
     else:
-        return False   
+        return False
+
 
 def is_bool_literal(str):
-    if str == 'true' or str == 'false':
+    if str == "true" or str == "false":
         return True
     else:
         return False
+
 
 def is_bv_literal(str):
     bv_pattern = re.compile(r"^(?:#b[01]+)|(?:#x[0-9a-fA-F]+)$")
@@ -28,29 +33,35 @@ def is_bv_literal(str):
     else:
         return False
 
+
 def is_symbol(str):
-    symbol_pattern = re.compile(r"^[a-zA-Z_+\-*&|!~<>=/%?\.$\^][a-zA-Z_+\-*&|!~<>=/%?\.$\^0-9]*$")
+    symbol_pattern = re.compile(
+        r"^[a-zA-Z_+\-*&|!~<>=/%?\.$\^][a-zA-Z_+\-*&|!~<>=/%?\.$\^0-9]*$"
+    )
     if symbol_pattern.match(str) is not None:
         return True
     else:
         return False
 
+
 def str_to_sort(sort_str):
     z3_sort = z3.BoolSort()
-    if sort_str == 'Bool':
+    if sort_str == "Bool":
         z3_sort = z3.BoolSort()
-    elif sort_str == 'Int':
+    elif sort_str == "Int":
         z3_sort = z3.IntSort()
-    elif sort_str == 'Real':
+    elif sort_str == "Real":
         z3_sort = z3.RealSort()
     else:
         bitvec_pattern = re.compile(r"^\(BitVec ([0-9]+)\)$")
-        match = bitvec_pattern.match(sort_str)    
+        match = bitvec_pattern.match(sort_str)
         if match != None:
             size = int(match.groups()[0])
             z3_sort = z3.BitVecSort(size)
         else:
-            enum_pattern = re.compile(r"^\(Enum \( ((?:[a-zA-Z_+\-*&|!~<>=/%?\.$\^][a-zA-Z_+\-*&|!~<>=/%?\.$\^0-9]* )+)\)\)$")
+            enum_pattern = re.compile(
+                r"^\(Enum \( ((?:[a-zA-Z_+\-*&|!~<>=/%?\.$\^][a-zA-Z_+\-*&|!~<>=/%?\.$\^0-9]* )+)\)\)$"
+            )
             match = enum_pattern.match(sort_str)
             if match != None:
                 values = match.groups()[0].strip()
@@ -60,21 +71,24 @@ def str_to_sort(sort_str):
 
     return z3_sort
 
+
 def contains_func(expr, func):
     if expr.decl().eq(func):
         return True
     else:
         for child in expr.children():
-            if(contains_func(child, func)):
+            if contains_func(child, func):
                 return True
     return False
+
 
 def contains_funcs(expr, funcs):
     for func in funcs:
         if contains_func(expr, func):
             return func
     return None
-        
+
+
 def find_function_arguments(expr, f):
     subs = []
     if expr.decl().name() == f.name():
@@ -82,6 +96,7 @@ def find_function_arguments(expr, f):
     for child in expr.children():
         subs.extend(find_function_arguments(child, f))
     return list(set(subs))
+
 
 def substitute_function_for_expression(expr, f, params, subs_expr):
     subs = find_function_arguments(expr, f)

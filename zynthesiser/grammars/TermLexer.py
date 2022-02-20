@@ -1,9 +1,9 @@
 # Generated from Term.g4 by ANTLR 4.7.2
-from antlr4 import *
+import sys
 from io import StringIO
 from typing.io import TextIO
-import sys
 
+from antlr4 import *
 
 
 def serializedATN():
@@ -37,20 +37,20 @@ def serializedATN():
         buf.write("\31\3\31\3\31\3\32\3\32\3\33\3\33\3\34\3\34\3\35\3\35")
         buf.write("\3\36\3\36\3\37\3\37\3\u00ec\2 \3\3\5\4\7\5\t\6\13\7\r")
         buf.write("\b\17\t\21\n\23\13\25\f\27\r\31\16\33\17\35\20\37\21!")
-        buf.write("\22#\23%\24\'\25)\26+\27-\30/\31\61\32\63\2\65\2\67\2")
-        buf.write("9\2;\2=\2\3\2\t\4\2\13\13\"\"\3\2c|\3\2C\\\n\2##&(,-/")
+        buf.write("\22#\23%\24'\25)\26+\27-\30/\31\61\32\63\2\65\2\67\2")
+        buf.write('9\2;\2=\2\3\2\t\4\2\13\13""\3\2c|\3\2C\\\n\2##&(,-/')
         buf.write("\61>A`a~~\u0080\u0080\3\2\62;\3\2\62\63\4\2CHch\2\u0121")
         buf.write("\2\3\3\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2\2\t\3\2\2\2\2\13")
         buf.write("\3\2\2\2\2\r\3\2\2\2\2\17\3\2\2\2\2\21\3\2\2\2\2\23\3")
         buf.write("\2\2\2\2\25\3\2\2\2\2\27\3\2\2\2\2\31\3\2\2\2\2\33\3\2")
         buf.write("\2\2\2\35\3\2\2\2\2\37\3\2\2\2\2!\3\2\2\2\2#\3\2\2\2\2")
-        buf.write("%\3\2\2\2\2\'\3\2\2\2\2)\3\2\2\2\2+\3\2\2\2\2-\3\2\2\2")
+        buf.write("%\3\2\2\2\2'\3\2\2\2\2)\3\2\2\2\2+\3\2\2\2\2-\3\2\2\2")
         buf.write("\2/\3\2\2\2\2\61\3\2\2\2\3?\3\2\2\2\5C\3\2\2\2\7L\3\2")
         buf.write("\2\2\tU\3\2\2\2\13c\3\2\2\2\rq\3\2\2\2\17u\3\2\2\2\21")
         buf.write("z\3\2\2\2\23\177\3\2\2\2\25\u0086\3\2\2\2\27\u008b\3\2")
         buf.write("\2\2\31\u0091\3\2\2\2\33\u0094\3\2\2\2\35\u0096\3\2\2")
         buf.write("\2\37\u009b\3\2\2\2!\u00a6\3\2\2\2#\u00b2\3\2\2\2%\u00b6")
-        buf.write("\3\2\2\2\'\u00bd\3\2\2\2)\u00d3\3\2\2\2+\u00e6\3\2\2\2")
+        buf.write("\3\2\2\2'\u00bd\3\2\2\2)\u00d3\3\2\2\2+\u00e6\3\2\2\2")
         buf.write("-\u00e8\3\2\2\2/\u00f7\3\2\2\2\61\u00fe\3\2\2\2\63\u0104")
         buf.write("\3\2\2\2\65\u0106\3\2\2\2\67\u0108\3\2\2\29\u010a\3\2")
         buf.write("\2\2;\u010c\3\2\2\2=\u010e\3\2\2\2?@\7n\2\2@A\7g\2\2A")
@@ -85,7 +85,7 @@ def serializedATN():
         buf.write("\35\2\u00aa\u00ac\7\60\2\2\u00ab\u00a7\3\2\2\2\u00ab\u00a8")
         buf.write("\3\2\2\2\u00ab\u00a9\3\2\2\2\u00ab\u00aa\3\2\2\2\u00ac")
         buf.write("\u00ad\3\2\2\2\u00ad\u00ab\3\2\2\2\u00ad\u00ae\3\2\2\2")
-        buf.write("\u00ae\u00af\3\2\2\2\u00af\u00b0\7$\2\2\u00b0\"\3\2\2")
+        buf.write('\u00ae\u00af\3\2\2\2\u00af\u00b0\7$\2\2\u00b0"\3\2\2')
         buf.write("\2\u00b1\u00b3\59\35\2\u00b2\u00b1\3\2\2\2\u00b3\u00b4")
         buf.write("\3\2\2\2\u00b4\u00b2\3\2\2\2\u00b4\u00b5\3\2\2\2\u00b5")
         buf.write("$\3\2\2\2\u00b6\u00b8\7/\2\2\u00b7\u00b9\59\35\2\u00b8")
@@ -135,7 +135,7 @@ class TermLexer(Lexer):
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
-    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]
+    decisionsToDFA = [DFA(ds, i) for i, ds in enumerate(atn.decisionToState)]
 
     T__0 = 1
     T__1 = 2
@@ -162,35 +162,84 @@ class TermLexer(Lexer):
     WHITESPACE = 23
     NEWLINE = 24
 
-    channelNames = [ u"DEFAULT_TOKEN_CHANNEL", u"HIDDEN" ]
+    channelNames = [u"DEFAULT_TOKEN_CHANNEL", u"HIDDEN"]
 
-    modeNames = [ "DEFAULT_MODE" ]
+    modeNames = ["DEFAULT_MODE"]
 
-    literalNames = [ "<INVALID>",
-            "'let'", "'Constant'", "'Variable'", "'InputVariable'", "'LocalVariable'", 
-            "'Int'", "'Bool'", "'Real'", "'BitVec'", "'Enum'", "'Array'", 
-            "'::'", "'('", "')'" ]
+    literalNames = [
+        "<INVALID>",
+        "'let'",
+        "'Constant'",
+        "'Variable'",
+        "'InputVariable'",
+        "'LocalVariable'",
+        "'Int'",
+        "'Bool'",
+        "'Real'",
+        "'BitVec'",
+        "'Enum'",
+        "'Array'",
+        "'::'",
+        "'('",
+        "')'",
+    ]
 
-    symbolicNames = [ "<INVALID>",
-            "LEFT_PARENS", "RIGHT_PARENS", "SYMBOL", "QUOTED_LITERAL", "POSITIVE_INT_CONST", 
-            "NEGATIVE_INT_CONST", "REAL_CONST", "BOOL_CONST", "BV_CONST", 
-            "COMMENT", "WHITESPACE", "NEWLINE" ]
+    symbolicNames = [
+        "<INVALID>",
+        "LEFT_PARENS",
+        "RIGHT_PARENS",
+        "SYMBOL",
+        "QUOTED_LITERAL",
+        "POSITIVE_INT_CONST",
+        "NEGATIVE_INT_CONST",
+        "REAL_CONST",
+        "BOOL_CONST",
+        "BV_CONST",
+        "COMMENT",
+        "WHITESPACE",
+        "NEWLINE",
+    ]
 
-    ruleNames = [ "T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", 
-                  "T__7", "T__8", "T__9", "T__10", "T__11", "LEFT_PARENS", 
-                  "RIGHT_PARENS", "SYMBOL", "QUOTED_LITERAL", "POSITIVE_INT_CONST", 
-                  "NEGATIVE_INT_CONST", "REAL_CONST", "BOOL_CONST", "BV_CONST", 
-                  "COMMENT", "WHITESPACE", "NEWLINE", "LOWERCASE_LETTER", 
-                  "UPPERCASE_LETTER", "SPECIAL_CHAR", "DIGIT", "BINARY_DIGIT", 
-                  "HEXADECIMAL_DIGIT" ]
+    ruleNames = [
+        "T__0",
+        "T__1",
+        "T__2",
+        "T__3",
+        "T__4",
+        "T__5",
+        "T__6",
+        "T__7",
+        "T__8",
+        "T__9",
+        "T__10",
+        "T__11",
+        "LEFT_PARENS",
+        "RIGHT_PARENS",
+        "SYMBOL",
+        "QUOTED_LITERAL",
+        "POSITIVE_INT_CONST",
+        "NEGATIVE_INT_CONST",
+        "REAL_CONST",
+        "BOOL_CONST",
+        "BV_CONST",
+        "COMMENT",
+        "WHITESPACE",
+        "NEWLINE",
+        "LOWERCASE_LETTER",
+        "UPPERCASE_LETTER",
+        "SPECIAL_CHAR",
+        "DIGIT",
+        "BINARY_DIGIT",
+        "HEXADECIMAL_DIGIT",
+    ]
 
     grammarFileName = "Term.g4"
 
-    def __init__(self, input=None, output:TextIO = sys.stdout):
+    def __init__(self, input=None, output: TextIO = sys.stdout):
         super().__init__(input, output)
         self.checkVersion("4.7.2")
-        self._interp = LexerATNSimulator(self, self.atn, self.decisionsToDFA, PredictionContextCache())
+        self._interp = LexerATNSimulator(
+            self, self.atn, self.decisionsToDFA, PredictionContextCache()
+        )
         self._actions = None
         self._predicates = None
-
-

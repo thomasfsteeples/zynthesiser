@@ -1,9 +1,10 @@
 # Generated from SyGuS_v1.g4 by ANTLR 4.7.2
 # encoding: utf-8
-from antlr4 import *
+import sys
 from io import StringIO
 from typing.io import TextIO
-import sys
+
+from antlr4 import *
 
 
 def serializedATN():
@@ -37,11 +38,11 @@ def serializedATN():
         buf.write("\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\5\22\u0118\n")
         buf.write("\22\3\23\3\23\3\23\3\23\3\23\3\23\5\23\u0120\n\23\3\24")
         buf.write("\3\24\3\24\3\24\3\24\2\2\25\2\4\6\b\n\f\16\20\22\24\26")
-        buf.write("\30\32\34\36 \"$&\2\2\2\u013c\2\63\3\2\2\2\4=\3\2\2\2")
+        buf.write('\30\32\34\36 "$&\2\2\2\u013c\2\63\3\2\2\2\4=\3\2\2\2')
         buf.write("\6?\3\2\2\2\bD\3\2\2\2\nJ\3\2\2\2\fP\3\2\2\2\16^\3\2\2")
         buf.write("\2\20q\3\2\2\2\22\u008a\3\2\2\2\24\u008f\3\2\2\2\26\u0093")
         buf.write("\3\2\2\2\30\u00a1\3\2\2\2\32\u00b9\3\2\2\2\34\u00bb\3")
-        buf.write("\2\2\2\36\u00ec\3\2\2\2 \u00ee\3\2\2\2\"\u0117\3\2\2\2")
+        buf.write('\2\2\2\36\u00ec\3\2\2\2 \u00ee\3\2\2\2"\u0117\3\2\2\2')
         buf.write("$\u011f\3\2\2\2&\u0121\3\2\2\2(*\5\6\4\2)+\5\4\3\2*)\3")
         buf.write("\2\2\2+,\3\2\2\2,*\3\2\2\2,-\3\2\2\2-\64\3\2\2\2.\60\5")
         buf.write("\4\3\2/.\3\2\2\2\60\61\3\2\2\2\61/\3\2\2\2\61\62\3\2\2")
@@ -51,19 +52,19 @@ def serializedATN():
         buf.write("\3\2\2\2=\67\3\2\2\2=8\3\2\2\2=9\3\2\2\2=:\3\2\2\2=;\3")
         buf.write("\2\2\2=<\3\2\2\2>\5\3\2\2\2?@\7\30\2\2@A\7\3\2\2AB\7\32")
         buf.write("\2\2BC\7\31\2\2C\7\3\2\2\2DE\7\30\2\2EF\7\4\2\2FG\7\32")
-        buf.write("\2\2GH\5\"\22\2HI\7\31\2\2I\t\3\2\2\2JK\7\30\2\2KL\7\5")
-        buf.write("\2\2LM\7\32\2\2MN\5\"\22\2NO\7\31\2\2O\13\3\2\2\2PQ\7")
-        buf.write("\30\2\2QR\7\6\2\2RS\7\32\2\2SW\7\30\2\2TV\5\"\22\2UT\3")
+        buf.write('\2\2GH\5"\22\2HI\7\31\2\2I\t\3\2\2\2JK\7\30\2\2KL\7\5')
+        buf.write('\2\2LM\7\32\2\2MN\5"\22\2NO\7\31\2\2O\13\3\2\2\2PQ\7')
+        buf.write('\30\2\2QR\7\6\2\2RS\7\32\2\2SW\7\30\2\2TV\5"\22\2UT\3')
         buf.write("\2\2\2VY\3\2\2\2WU\3\2\2\2WX\3\2\2\2XZ\3\2\2\2YW\3\2\2")
-        buf.write("\2Z[\7\31\2\2[\\\5\"\22\2\\]\7\30\2\2]\r\3\2\2\2^_\7\30")
+        buf.write('\2Z[\7\31\2\2[\\\5"\22\2\\]\7\30\2\2]\r\3\2\2\2^_\7\30')
         buf.write("\2\2_`\7\7\2\2`a\7\32\2\2ai\7\30\2\2bc\7\30\2\2cd\7\32")
-        buf.write("\2\2de\5\"\22\2ef\7\31\2\2fh\3\2\2\2gb\3\2\2\2hk\3\2\2")
+        buf.write('\2\2de\5"\22\2ef\7\31\2\2fh\3\2\2\2gb\3\2\2\2hk\3\2\2')
         buf.write("\2ig\3\2\2\2ij\3\2\2\2jl\3\2\2\2ki\3\2\2\2lm\7\31\2\2")
-        buf.write("mn\5\"\22\2no\5\32\16\2op\7\31\2\2p\17\3\2\2\2qr\7\30")
+        buf.write('mn\5"\22\2no\5\32\16\2op\7\31\2\2p\17\3\2\2\2qr\7\30')
         buf.write("\2\2rs\7\b\2\2st\7\32\2\2t|\7\30\2\2uv\7\30\2\2vw\7\32")
-        buf.write("\2\2wx\5\"\22\2xy\7\31\2\2y{\3\2\2\2zu\3\2\2\2{~\3\2\2")
+        buf.write('\2\2wx\5"\22\2xy\7\31\2\2y{\3\2\2\2zu\3\2\2\2{~\3\2\2')
         buf.write("\2|z\3\2\2\2|}\3\2\2\2}\177\3\2\2\2~|\3\2\2\2\177\u0080")
-        buf.write("\7\31\2\2\u0080\u0081\5\"\22\2\u0081\u0083\7\30\2\2\u0082")
+        buf.write('\7\31\2\2\u0080\u0081\5"\22\2\u0081\u0083\7\30\2\2\u0082')
         buf.write("\u0084\5\30\r\2\u0083\u0082\3\2\2\2\u0084\u0085\3\2\2")
         buf.write("\2\u0085\u0083\3\2\2\2\u0085\u0086\3\2\2\2\u0086\u0087")
         buf.write("\3\2\2\2\u0087\u0088\7\31\2\2\u0088\u0089\7\31\2\2\u0089")
@@ -77,7 +78,7 @@ def serializedATN():
         buf.write("\u009a\3\2\2\2\u009c\u009d\3\2\2\2\u009d\u009e\3\2\2\2")
         buf.write("\u009e\u009f\7\31\2\2\u009f\u00a0\7\31\2\2\u00a0\27\3")
         buf.write("\2\2\2\u00a1\u00a2\7\30\2\2\u00a2\u00a3\7\32\2\2\u00a3")
-        buf.write("\u00a4\5\"\22\2\u00a4\u00a6\7\30\2\2\u00a5\u00a7\5\36")
+        buf.write('\u00a4\5"\22\2\u00a4\u00a6\7\30\2\2\u00a5\u00a7\5\36')
         buf.write("\20\2\u00a6\u00a5\3\2\2\2\u00a7\u00a8\3\2\2\2\u00a8\u00a6")
         buf.write("\3\2\2\2\u00a8\u00a9\3\2\2\2\u00a9\u00aa\3\2\2\2\u00aa")
         buf.write("\u00ab\7\31\2\2\u00ab\u00ac\7\31\2\2\u00ac\31\3\2\2\2")
@@ -89,7 +90,7 @@ def serializedATN():
         buf.write("\u00ad\3\2\2\2\u00b9\u00b6\3\2\2\2\u00b9\u00b7\3\2\2\2")
         buf.write("\u00b9\u00b8\3\2\2\2\u00ba\33\3\2\2\2\u00bb\u00bc\7\30")
         buf.write("\2\2\u00bc\u00bd\7\f\2\2\u00bd\u00c4\7\30\2\2\u00be\u00bf")
-        buf.write("\7\30\2\2\u00bf\u00c0\7\32\2\2\u00c0\u00c1\5\"\22\2\u00c1")
+        buf.write('\7\30\2\2\u00bf\u00c0\7\32\2\2\u00c0\u00c1\5"\22\2\u00c1')
         buf.write("\u00c2\5\32\16\2\u00c2\u00c3\7\31\2\2\u00c3\u00c5\3\2")
         buf.write("\2\2\u00c4\u00be\3\2\2\2\u00c5\u00c6\3\2\2\2\u00c6\u00c4")
         buf.write("\3\2\2\2\u00c6\u00c7\3\2\2\2\u00c7\u00c8\3\2\2\2\u00c8")
@@ -100,19 +101,19 @@ def serializedATN():
         buf.write("\u00d2\u00d4\3\2\2\2\u00d3\u00d1\3\2\2\2\u00d4\u00ed\7")
         buf.write("\31\2\2\u00d5\u00ed\5$\23\2\u00d6\u00ed\7\32\2\2\u00d7")
         buf.write("\u00ed\5 \21\2\u00d8\u00d9\7\30\2\2\u00d9\u00da\7\r\2")
-        buf.write("\2\u00da\u00db\5\"\22\2\u00db\u00dc\7\31\2\2\u00dc\u00ed")
+        buf.write('\2\u00da\u00db\5"\22\2\u00db\u00dc\7\31\2\2\u00dc\u00ed')
         buf.write("\3\2\2\2\u00dd\u00de\7\30\2\2\u00de\u00df\7\16\2\2\u00df")
-        buf.write("\u00e0\5\"\22\2\u00e0\u00e1\7\31\2\2\u00e1\u00ed\3\2\2")
+        buf.write('\u00e0\5"\22\2\u00e0\u00e1\7\31\2\2\u00e1\u00ed\3\2\2')
         buf.write("\2\u00e2\u00e3\7\30\2\2\u00e3\u00e4\7\17\2\2\u00e4\u00e5")
-        buf.write("\5\"\22\2\u00e5\u00e6\7\31\2\2\u00e6\u00ed\3\2\2\2\u00e7")
-        buf.write("\u00e8\7\30\2\2\u00e8\u00e9\7\20\2\2\u00e9\u00ea\5\"\22")
+        buf.write('\5"\22\2\u00e5\u00e6\7\31\2\2\u00e6\u00ed\3\2\2\2\u00e7')
+        buf.write('\u00e8\7\30\2\2\u00e8\u00e9\7\20\2\2\u00e9\u00ea\5"\22')
         buf.write("\2\u00ea\u00eb\7\31\2\2\u00eb\u00ed\3\2\2\2\u00ec\u00cc")
         buf.write("\3\2\2\2\u00ec\u00d5\3\2\2\2\u00ec\u00d6\3\2\2\2\u00ec")
         buf.write("\u00d7\3\2\2\2\u00ec\u00d8\3\2\2\2\u00ec\u00dd\3\2\2\2")
         buf.write("\u00ec\u00e2\3\2\2\2\u00ec\u00e7\3\2\2\2\u00ed\37\3\2")
         buf.write("\2\2\u00ee\u00ef\7\30\2\2\u00ef\u00f0\7\f\2\2\u00f0\u00f7")
         buf.write("\7\30\2\2\u00f1\u00f2\7\30\2\2\u00f2\u00f3\7\32\2\2\u00f3")
-        buf.write("\u00f4\5\"\22\2\u00f4\u00f5\5\36\20\2\u00f5\u00f6\7\31")
+        buf.write('\u00f4\5"\22\2\u00f4\u00f5\5\36\20\2\u00f5\u00f6\7\31')
         buf.write("\2\2\u00f6\u00f8\3\2\2\2\u00f7\u00f1\3\2\2\2\u00f8\u00f9")
         buf.write("\3\2\2\2\u00f9\u00f7\3\2\2\2\u00f9\u00fa\3\2\2\2\u00fa")
         buf.write("\u00fb\3\2\2\2\u00fb\u00fc\7\31\2\2\u00fc\u00fd\5\36\20")
@@ -124,7 +125,7 @@ def serializedATN():
         buf.write("\3\2\2\2\u010b\u010c\3\2\2\2\u010c\u010a\3\2\2\2\u010c")
         buf.write("\u010d\3\2\2\2\u010d\u010e\3\2\2\2\u010e\u010f\7\31\2")
         buf.write("\2\u010f\u0118\7\31\2\2\u0110\u0111\7\30\2\2\u0111\u0112")
-        buf.write("\7\26\2\2\u0112\u0113\5\"\22\2\u0113\u0114\5\"\22\2\u0114")
+        buf.write('\7\26\2\2\u0112\u0113\5"\22\2\u0113\u0114\5"\22\2\u0114')
         buf.write("\u0115\7\31\2\2\u0115\u0118\3\2\2\2\u0116\u0118\7\32\2")
         buf.write("\2\u0117\u00ff\3\2\2\2\u0117\u0100\3\2\2\2\u0117\u0101")
         buf.write("\3\2\2\2\u0117\u0102\3\2\2\2\u0117\u0106\3\2\2\2\u0117")
@@ -134,38 +135,85 @@ def serializedATN():
         buf.write("\5&\24\2\u011f\u0119\3\2\2\2\u011f\u011a\3\2\2\2\u011f")
         buf.write("\u011b\3\2\2\2\u011f\u011c\3\2\2\2\u011f\u011d\3\2\2\2")
         buf.write("\u011f\u011e\3\2\2\2\u0120%\3\2\2\2\u0121\u0122\7\32\2")
-        buf.write("\2\u0122\u0123\7\27\2\2\u0123\u0124\7\32\2\2\u0124\'\3")
+        buf.write("\2\u0122\u0123\7\27\2\2\u0123\u0124\7\32\2\2\u0124'\3")
         buf.write("\2\2\2\25,\61\63=Wi|\u0085\u009c\u00a8\u00b2\u00b9\u00c6")
         buf.write("\u00d1\u00ec\u00f9\u010c\u0117\u011f")
         return buf.getvalue()
 
 
-class SyGuS_v1Parser ( Parser ):
+class SyGuS_v1Parser(Parser):
 
     grammarFileName = "SyGuS_v1.g4"
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
-    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]
+    decisionsToDFA = [DFA(ds, i) for i, ds in enumerate(atn.decisionToState)]
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'set-logic'", "'define-sort'", "'declare-var'", 
-                     "'declare-fun'", "'define-fun'", "'synth-fun'", "'constraint'", 
-                     "'check-synth'", "'set-options'", "'let'", "'Constant'", 
-                     "'Variable'", "'InputVariable'", "'LocalVariable'", 
-                     "'Int'", "'Bool'", "'Real'", "'BitVec'", "'Enum'", 
-                     "'Array'", "'::'", "'('", "')'" ]
+    literalNames = [
+        "<INVALID>",
+        "'set-logic'",
+        "'define-sort'",
+        "'declare-var'",
+        "'declare-fun'",
+        "'define-fun'",
+        "'synth-fun'",
+        "'constraint'",
+        "'check-synth'",
+        "'set-options'",
+        "'let'",
+        "'Constant'",
+        "'Variable'",
+        "'InputVariable'",
+        "'LocalVariable'",
+        "'Int'",
+        "'Bool'",
+        "'Real'",
+        "'BitVec'",
+        "'Enum'",
+        "'Array'",
+        "'::'",
+        "'('",
+        "')'",
+    ]
 
-    symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "LEFT_PARENS", "RIGHT_PARENS", 
-                      "SYMBOL", "QUOTED_LITERAL", "POSITIVE_INT_CONST", 
-                      "NEGATIVE_INT_CONST", "REAL_CONST", "BOOL_CONST", 
-                      "BV_CONST", "COMMENT", "WHITESPACE", "NEWLINE" ]
+    symbolicNames = [
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "<INVALID>",
+        "LEFT_PARENS",
+        "RIGHT_PARENS",
+        "SYMBOL",
+        "QUOTED_LITERAL",
+        "POSITIVE_INT_CONST",
+        "NEGATIVE_INT_CONST",
+        "REAL_CONST",
+        "BOOL_CONST",
+        "BV_CONST",
+        "COMMENT",
+        "WHITESPACE",
+        "NEWLINE",
+    ]
 
     RULE_sygus = 0
     RULE_cmd = 1
@@ -187,128 +235,138 @@ class SyGuS_v1Parser ( Parser ):
     RULE_literal = 17
     RULE_enum_const = 18
 
-    ruleNames =  [ "sygus", "cmd", "set_logic_cmd", "sort_def_cmd", "var_decl_cmd", 
-                   "fun_decl_cmd", "fun_def_cmd", "synth_fun_cmd", "constraint_cmd", 
-                   "check_synth_cmd", "set_opts_cmd", "nt_def", "term", 
-                   "let_term", "g_term", "let_g_term", "sort_expr", "literal", 
-                   "enum_const" ]
+    ruleNames = [
+        "sygus",
+        "cmd",
+        "set_logic_cmd",
+        "sort_def_cmd",
+        "var_decl_cmd",
+        "fun_decl_cmd",
+        "fun_def_cmd",
+        "synth_fun_cmd",
+        "constraint_cmd",
+        "check_synth_cmd",
+        "set_opts_cmd",
+        "nt_def",
+        "term",
+        "let_term",
+        "g_term",
+        "let_g_term",
+        "sort_expr",
+        "literal",
+        "enum_const",
+    ]
 
     EOF = Token.EOF
-    T__0=1
-    T__1=2
-    T__2=3
-    T__3=4
-    T__4=5
-    T__5=6
-    T__6=7
-    T__7=8
-    T__8=9
-    T__9=10
-    T__10=11
-    T__11=12
-    T__12=13
-    T__13=14
-    T__14=15
-    T__15=16
-    T__16=17
-    T__17=18
-    T__18=19
-    T__19=20
-    T__20=21
-    LEFT_PARENS=22
-    RIGHT_PARENS=23
-    SYMBOL=24
-    QUOTED_LITERAL=25
-    POSITIVE_INT_CONST=26
-    NEGATIVE_INT_CONST=27
-    REAL_CONST=28
-    BOOL_CONST=29
-    BV_CONST=30
-    COMMENT=31
-    WHITESPACE=32
-    NEWLINE=33
+    T__0 = 1
+    T__1 = 2
+    T__2 = 3
+    T__3 = 4
+    T__4 = 5
+    T__5 = 6
+    T__6 = 7
+    T__7 = 8
+    T__8 = 9
+    T__9 = 10
+    T__10 = 11
+    T__11 = 12
+    T__12 = 13
+    T__13 = 14
+    T__14 = 15
+    T__15 = 16
+    T__16 = 17
+    T__17 = 18
+    T__18 = 19
+    T__19 = 20
+    T__20 = 21
+    LEFT_PARENS = 22
+    RIGHT_PARENS = 23
+    SYMBOL = 24
+    QUOTED_LITERAL = 25
+    POSITIVE_INT_CONST = 26
+    NEGATIVE_INT_CONST = 27
+    REAL_CONST = 28
+    BOOL_CONST = 29
+    BV_CONST = 30
+    COMMENT = 31
+    WHITESPACE = 32
+    NEWLINE = 33
 
-    def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
+    def __init__(self, input: TokenStream, output: TextIO = sys.stdout):
         super().__init__(input, output)
         self.checkVersion("4.7.2")
-        self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
+        self._interp = ParserATNSimulator(
+            self, self.atn, self.decisionsToDFA, self.sharedContextCache
+        )
         self._predicates = None
 
-
-
-
     class SygusContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def set_logic_cmd(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Set_logic_cmdContext,0)
+            return self.getTypedRuleContext(SyGuS_v1Parser.Set_logic_cmdContext, 0)
 
-
-        def cmd(self, i:int=None):
+        def cmd(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(SyGuS_v1Parser.CmdContext)
             else:
-                return self.getTypedRuleContext(SyGuS_v1Parser.CmdContext,i)
-
+                return self.getTypedRuleContext(SyGuS_v1Parser.CmdContext, i)
 
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_sygus
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSygus" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitSygus"):
                 return visitor.visitSygus(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def sygus(self):
 
         localctx = SyGuS_v1Parser.SygusContext(self, self._ctx, self.state)
         self.enterRule(localctx, 0, self.RULE_sygus)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.state = 49
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,2,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input, 2, self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 38
                 self.set_logic_cmd()
-                self.state = 40 
+                self.state = 40
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
                     self.state = 39
                     self.cmd()
-                    self.state = 42 
+                    self.state = 42
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    if not (_la==SyGuS_v1Parser.LEFT_PARENS):
+                    if not (_la == SyGuS_v1Parser.LEFT_PARENS):
                         break
 
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 45 
+                self.state = 45
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
                     self.state = 44
                     self.cmd()
-                    self.state = 47 
+                    self.state = 47
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    if not (_la==SyGuS_v1Parser.LEFT_PARENS):
+                    if not (_la == SyGuS_v1Parser.LEFT_PARENS):
                         break
 
                 pass
-
 
         except RecognitionException as re:
             localctx.exception = re
@@ -318,56 +376,45 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class CmdContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
         def sort_def_cmd(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_def_cmdContext,0)
-
+            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_def_cmdContext, 0)
 
         def var_decl_cmd(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Var_decl_cmdContext,0)
-
+            return self.getTypedRuleContext(SyGuS_v1Parser.Var_decl_cmdContext, 0)
 
         def fun_decl_cmd(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Fun_decl_cmdContext,0)
-
+            return self.getTypedRuleContext(SyGuS_v1Parser.Fun_decl_cmdContext, 0)
 
         def fun_def_cmd(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Fun_def_cmdContext,0)
-
+            return self.getTypedRuleContext(SyGuS_v1Parser.Fun_def_cmdContext, 0)
 
         def synth_fun_cmd(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Synth_fun_cmdContext,0)
-
+            return self.getTypedRuleContext(SyGuS_v1Parser.Synth_fun_cmdContext, 0)
 
         def constraint_cmd(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Constraint_cmdContext,0)
-
+            return self.getTypedRuleContext(SyGuS_v1Parser.Constraint_cmdContext, 0)
 
         def check_synth_cmd(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Check_synth_cmdContext,0)
-
+            return self.getTypedRuleContext(SyGuS_v1Parser.Check_synth_cmdContext, 0)
 
         def set_opts_cmd(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Set_opts_cmdContext,0)
-
+            return self.getTypedRuleContext(SyGuS_v1Parser.Set_opts_cmdContext, 0)
 
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_cmd
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitCmd" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitCmd"):
                 return visitor.visitCmd(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def cmd(self):
 
@@ -376,7 +423,7 @@ class SyGuS_v1Parser ( Parser ):
         try:
             self.state = 59
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,3,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input, 3, self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 51
@@ -425,7 +472,6 @@ class SyGuS_v1Parser ( Parser ):
                 self.set_opts_cmd()
                 pass
 
-
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -434,10 +480,10 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Set_logic_cmdContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -453,14 +499,11 @@ class SyGuS_v1Parser ( Parser ):
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_set_logic_cmd
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSet_logic_cmd" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitSet_logic_cmd"):
                 return visitor.visitSet_logic_cmd(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def set_logic_cmd(self):
 
@@ -484,10 +527,10 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Sort_def_cmdContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -498,8 +541,7 @@ class SyGuS_v1Parser ( Parser ):
             return self.getToken(SyGuS_v1Parser.SYMBOL, 0)
 
         def sort_expr(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext,0)
-
+            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext, 0)
 
         def RIGHT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, 0)
@@ -507,14 +549,11 @@ class SyGuS_v1Parser ( Parser ):
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_sort_def_cmd
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSort_def_cmd" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitSort_def_cmd"):
                 return visitor.visitSort_def_cmd(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def sort_def_cmd(self):
 
@@ -540,10 +579,10 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Var_decl_cmdContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -554,8 +593,7 @@ class SyGuS_v1Parser ( Parser ):
             return self.getToken(SyGuS_v1Parser.SYMBOL, 0)
 
         def sort_expr(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext,0)
-
+            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext, 0)
 
         def RIGHT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, 0)
@@ -563,14 +601,11 @@ class SyGuS_v1Parser ( Parser ):
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_var_decl_cmd
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitVar_decl_cmd" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitVar_decl_cmd"):
                 return visitor.visitVar_decl_cmd(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def var_decl_cmd(self):
 
@@ -596,14 +631,14 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Fun_decl_cmdContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LEFT_PARENS(self, i:int=None):
+        def LEFT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.LEFT_PARENS)
             else:
@@ -615,30 +650,26 @@ class SyGuS_v1Parser ( Parser ):
         def RIGHT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, 0)
 
-        def sort_expr(self, i:int=None):
+        def sort_expr(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(SyGuS_v1Parser.Sort_exprContext)
             else:
-                return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext,i)
-
+                return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext, i)
 
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_fun_decl_cmd
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitFun_decl_cmd" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitFun_decl_cmd"):
                 return visitor.visitFun_decl_cmd(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def fun_decl_cmd(self):
 
         localctx = SyGuS_v1Parser.Fun_decl_cmdContext(self, self._ctx, self.state)
         self.enterRule(localctx, 10, self.RULE_fun_decl_cmd)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 78
@@ -652,7 +683,16 @@ class SyGuS_v1Parser ( Parser ):
             self.state = 85
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SyGuS_v1Parser.T__14) | (1 << SyGuS_v1Parser.T__15) | (1 << SyGuS_v1Parser.T__16) | (1 << SyGuS_v1Parser.LEFT_PARENS) | (1 << SyGuS_v1Parser.SYMBOL))) != 0):
+            while ((_la) & ~0x3F) == 0 and (
+                (1 << _la)
+                & (
+                    (1 << SyGuS_v1Parser.T__14)
+                    | (1 << SyGuS_v1Parser.T__15)
+                    | (1 << SyGuS_v1Parser.T__16)
+                    | (1 << SyGuS_v1Parser.LEFT_PARENS)
+                    | (1 << SyGuS_v1Parser.SYMBOL)
+                )
+            ) != 0:
                 self.state = 82
                 self.sort_expr()
                 self.state = 87
@@ -673,59 +713,54 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Fun_def_cmdContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LEFT_PARENS(self, i:int=None):
+        def LEFT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.LEFT_PARENS)
             else:
                 return self.getToken(SyGuS_v1Parser.LEFT_PARENS, i)
 
-        def SYMBOL(self, i:int=None):
+        def SYMBOL(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.SYMBOL)
             else:
                 return self.getToken(SyGuS_v1Parser.SYMBOL, i)
 
-        def RIGHT_PARENS(self, i:int=None):
+        def RIGHT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.RIGHT_PARENS)
             else:
                 return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, i)
 
-        def sort_expr(self, i:int=None):
+        def sort_expr(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(SyGuS_v1Parser.Sort_exprContext)
             else:
-                return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext,i)
-
+                return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext, i)
 
         def term(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.TermContext,0)
-
+            return self.getTypedRuleContext(SyGuS_v1Parser.TermContext, 0)
 
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_fun_def_cmd
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitFun_def_cmd" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitFun_def_cmd"):
                 return visitor.visitFun_def_cmd(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def fun_def_cmd(self):
 
         localctx = SyGuS_v1Parser.Fun_def_cmdContext(self, self._ctx, self.state)
         self.enterRule(localctx, 12, self.RULE_fun_def_cmd)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 92
@@ -739,7 +774,7 @@ class SyGuS_v1Parser ( Parser ):
             self.state = 103
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==SyGuS_v1Parser.LEFT_PARENS:
+            while _la == SyGuS_v1Parser.LEFT_PARENS:
                 self.state = 96
                 self.match(SyGuS_v1Parser.LEFT_PARENS)
                 self.state = 97
@@ -768,62 +803,57 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Synth_fun_cmdContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LEFT_PARENS(self, i:int=None):
+        def LEFT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.LEFT_PARENS)
             else:
                 return self.getToken(SyGuS_v1Parser.LEFT_PARENS, i)
 
-        def SYMBOL(self, i:int=None):
+        def SYMBOL(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.SYMBOL)
             else:
                 return self.getToken(SyGuS_v1Parser.SYMBOL, i)
 
-        def RIGHT_PARENS(self, i:int=None):
+        def RIGHT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.RIGHT_PARENS)
             else:
                 return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, i)
 
-        def sort_expr(self, i:int=None):
+        def sort_expr(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(SyGuS_v1Parser.Sort_exprContext)
             else:
-                return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext,i)
+                return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext, i)
 
-
-        def nt_def(self, i:int=None):
+        def nt_def(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(SyGuS_v1Parser.Nt_defContext)
             else:
-                return self.getTypedRuleContext(SyGuS_v1Parser.Nt_defContext,i)
-
+                return self.getTypedRuleContext(SyGuS_v1Parser.Nt_defContext, i)
 
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_synth_fun_cmd
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSynth_fun_cmd" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitSynth_fun_cmd"):
                 return visitor.visitSynth_fun_cmd(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def synth_fun_cmd(self):
 
         localctx = SyGuS_v1Parser.Synth_fun_cmdContext(self, self._ctx, self.state)
         self.enterRule(localctx, 14, self.RULE_synth_fun_cmd)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 111
@@ -837,7 +867,7 @@ class SyGuS_v1Parser ( Parser ):
             self.state = 122
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==SyGuS_v1Parser.LEFT_PARENS:
+            while _la == SyGuS_v1Parser.LEFT_PARENS:
                 self.state = 115
                 self.match(SyGuS_v1Parser.LEFT_PARENS)
                 self.state = 116
@@ -856,16 +886,16 @@ class SyGuS_v1Parser ( Parser ):
             self.sort_expr()
             self.state = 127
             self.match(SyGuS_v1Parser.LEFT_PARENS)
-            self.state = 129 
+            self.state = 129
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
                 self.state = 128
                 self.nt_def()
-                self.state = 131 
+                self.state = 131
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (_la==SyGuS_v1Parser.LEFT_PARENS):
+                if not (_la == SyGuS_v1Parser.LEFT_PARENS):
                     break
 
             self.state = 133
@@ -880,10 +910,10 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Constraint_cmdContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -891,8 +921,7 @@ class SyGuS_v1Parser ( Parser ):
             return self.getToken(SyGuS_v1Parser.LEFT_PARENS, 0)
 
         def term(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.TermContext,0)
-
+            return self.getTypedRuleContext(SyGuS_v1Parser.TermContext, 0)
 
         def RIGHT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, 0)
@@ -900,14 +929,11 @@ class SyGuS_v1Parser ( Parser ):
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_constraint_cmd
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitConstraint_cmd" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitConstraint_cmd"):
                 return visitor.visitConstraint_cmd(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def constraint_cmd(self):
 
@@ -931,10 +957,10 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Check_synth_cmdContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
@@ -947,14 +973,11 @@ class SyGuS_v1Parser ( Parser ):
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_check_synth_cmd
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitCheck_synth_cmd" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitCheck_synth_cmd"):
                 return visitor.visitCheck_synth_cmd(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def check_synth_cmd(self):
 
@@ -976,32 +999,32 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Set_opts_cmdContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LEFT_PARENS(self, i:int=None):
+        def LEFT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.LEFT_PARENS)
             else:
                 return self.getToken(SyGuS_v1Parser.LEFT_PARENS, i)
 
-        def RIGHT_PARENS(self, i:int=None):
+        def RIGHT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.RIGHT_PARENS)
             else:
                 return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, i)
 
-        def SYMBOL(self, i:int=None):
+        def SYMBOL(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.SYMBOL)
             else:
                 return self.getToken(SyGuS_v1Parser.SYMBOL, i)
 
-        def QUOTED_LITERAL(self, i:int=None):
+        def QUOTED_LITERAL(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.QUOTED_LITERAL)
             else:
@@ -1010,20 +1033,17 @@ class SyGuS_v1Parser ( Parser ):
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_set_opts_cmd
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSet_opts_cmd" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitSet_opts_cmd"):
                 return visitor.visitSet_opts_cmd(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def set_opts_cmd(self):
 
         localctx = SyGuS_v1Parser.Set_opts_cmdContext(self, self._ctx, self.state)
         self.enterRule(localctx, 20, self.RULE_set_opts_cmd)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 145
@@ -1032,7 +1052,7 @@ class SyGuS_v1Parser ( Parser ):
             self.match(SyGuS_v1Parser.T__8)
             self.state = 147
             self.match(SyGuS_v1Parser.LEFT_PARENS)
-            self.state = 152 
+            self.state = 152
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
@@ -1044,10 +1064,10 @@ class SyGuS_v1Parser ( Parser ):
                 self.match(SyGuS_v1Parser.QUOTED_LITERAL)
                 self.state = 151
                 self.match(SyGuS_v1Parser.RIGHT_PARENS)
-                self.state = 154 
+                self.state = 154
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (_la==SyGuS_v1Parser.LEFT_PARENS):
+                if not (_la == SyGuS_v1Parser.LEFT_PARENS):
                     break
 
             self.state = 156
@@ -1062,14 +1082,14 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Nt_defContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LEFT_PARENS(self, i:int=None):
+        def LEFT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.LEFT_PARENS)
             else:
@@ -1079,39 +1099,34 @@ class SyGuS_v1Parser ( Parser ):
             return self.getToken(SyGuS_v1Parser.SYMBOL, 0)
 
         def sort_expr(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext,0)
+            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext, 0)
 
-
-        def RIGHT_PARENS(self, i:int=None):
+        def RIGHT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.RIGHT_PARENS)
             else:
                 return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, i)
 
-        def g_term(self, i:int=None):
+        def g_term(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(SyGuS_v1Parser.G_termContext)
             else:
-                return self.getTypedRuleContext(SyGuS_v1Parser.G_termContext,i)
-
+                return self.getTypedRuleContext(SyGuS_v1Parser.G_termContext, i)
 
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_nt_def
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitNt_def" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitNt_def"):
                 return visitor.visitNt_def(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def nt_def(self):
 
         localctx = SyGuS_v1Parser.Nt_defContext(self, self._ctx, self.state)
         self.enterRule(localctx, 22, self.RULE_nt_def)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 159
@@ -1122,16 +1137,33 @@ class SyGuS_v1Parser ( Parser ):
             self.sort_expr()
             self.state = 162
             self.match(SyGuS_v1Parser.LEFT_PARENS)
-            self.state = 164 
+            self.state = 164
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
                 self.state = 163
                 self.g_term()
-                self.state = 166 
+                self.state = 166
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SyGuS_v1Parser.LEFT_PARENS) | (1 << SyGuS_v1Parser.SYMBOL) | (1 << SyGuS_v1Parser.POSITIVE_INT_CONST) | (1 << SyGuS_v1Parser.NEGATIVE_INT_CONST) | (1 << SyGuS_v1Parser.REAL_CONST) | (1 << SyGuS_v1Parser.BOOL_CONST) | (1 << SyGuS_v1Parser.BV_CONST))) != 0)):
+                if not (
+                    (
+                        ((_la) & ~0x3F) == 0
+                        and (
+                            (1 << _la)
+                            & (
+                                (1 << SyGuS_v1Parser.LEFT_PARENS)
+                                | (1 << SyGuS_v1Parser.SYMBOL)
+                                | (1 << SyGuS_v1Parser.POSITIVE_INT_CONST)
+                                | (1 << SyGuS_v1Parser.NEGATIVE_INT_CONST)
+                                | (1 << SyGuS_v1Parser.REAL_CONST)
+                                | (1 << SyGuS_v1Parser.BOOL_CONST)
+                                | (1 << SyGuS_v1Parser.BV_CONST)
+                            )
+                        )
+                        != 0
+                    )
+                ):
                     break
 
             self.state = 168
@@ -1146,109 +1178,104 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class TermContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
-
 
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_term
 
-     
-        def copyFrom(self, ctx:ParserRuleContext):
+        def copyFrom(self, ctx: ParserRuleContext):
             super().copyFrom(ctx)
 
-
-
     class Lit_termContext(TermContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.TermContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.TermContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def literal(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.LiteralContext,0)
+            return self.getTypedRuleContext(SyGuS_v1Parser.LiteralContext, 0)
 
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLit_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitLit_term"):
                 return visitor.visitLit_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Let_term_termContext(TermContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.TermContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.TermContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def let_term(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Let_termContext,0)
+            return self.getTypedRuleContext(SyGuS_v1Parser.Let_termContext, 0)
 
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLet_term_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitLet_term_term"):
                 return visitor.visitLet_term_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Symbol_termContext(TermContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.TermContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.TermContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def SYMBOL(self):
             return self.getToken(SyGuS_v1Parser.SYMBOL, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSymbol_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitSymbol_term"):
                 return visitor.visitSymbol_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Func_termContext(TermContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.TermContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.TermContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def LEFT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.LEFT_PARENS, 0)
+
         def SYMBOL(self):
             return self.getToken(SyGuS_v1Parser.SYMBOL, 0)
+
         def RIGHT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, 0)
-        def term(self, i:int=None):
+
+        def term(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(SyGuS_v1Parser.TermContext)
             else:
-                return self.getTypedRuleContext(SyGuS_v1Parser.TermContext,i)
+                return self.getTypedRuleContext(SyGuS_v1Parser.TermContext, i)
 
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitFunc_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitFunc_term"):
                 return visitor.visitFunc_term(self)
             else:
                 return visitor.visitChildren(self)
-
-
 
     def term(self):
 
         localctx = SyGuS_v1Parser.TermContext(self, self._ctx, self.state)
         self.enterRule(localctx, 24, self.RULE_term)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.state = 183
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,11,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input, 11, self._ctx)
             if la_ == 1:
                 localctx = SyGuS_v1Parser.Func_termContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
@@ -1259,7 +1286,18 @@ class SyGuS_v1Parser ( Parser ):
                 self.state = 176
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SyGuS_v1Parser.LEFT_PARENS) | (1 << SyGuS_v1Parser.SYMBOL) | (1 << SyGuS_v1Parser.POSITIVE_INT_CONST) | (1 << SyGuS_v1Parser.NEGATIVE_INT_CONST) | (1 << SyGuS_v1Parser.REAL_CONST) | (1 << SyGuS_v1Parser.BOOL_CONST) | (1 << SyGuS_v1Parser.BV_CONST))) != 0):
+                while ((_la) & ~0x3F) == 0 and (
+                    (1 << _la)
+                    & (
+                        (1 << SyGuS_v1Parser.LEFT_PARENS)
+                        | (1 << SyGuS_v1Parser.SYMBOL)
+                        | (1 << SyGuS_v1Parser.POSITIVE_INT_CONST)
+                        | (1 << SyGuS_v1Parser.NEGATIVE_INT_CONST)
+                        | (1 << SyGuS_v1Parser.REAL_CONST)
+                        | (1 << SyGuS_v1Parser.BOOL_CONST)
+                        | (1 << SyGuS_v1Parser.BV_CONST)
+                    )
+                ) != 0:
                     self.state = 173
                     self.term()
                     self.state = 178
@@ -1291,7 +1329,6 @@ class SyGuS_v1Parser ( Parser ):
                 self.let_term()
                 pass
 
-
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1300,62 +1337,57 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Let_termContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LEFT_PARENS(self, i:int=None):
+        def LEFT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.LEFT_PARENS)
             else:
                 return self.getToken(SyGuS_v1Parser.LEFT_PARENS, i)
 
-        def RIGHT_PARENS(self, i:int=None):
+        def RIGHT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.RIGHT_PARENS)
             else:
                 return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, i)
 
-        def term(self, i:int=None):
+        def term(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(SyGuS_v1Parser.TermContext)
             else:
-                return self.getTypedRuleContext(SyGuS_v1Parser.TermContext,i)
+                return self.getTypedRuleContext(SyGuS_v1Parser.TermContext, i)
 
-
-        def SYMBOL(self, i:int=None):
+        def SYMBOL(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.SYMBOL)
             else:
                 return self.getToken(SyGuS_v1Parser.SYMBOL, i)
 
-        def sort_expr(self, i:int=None):
+        def sort_expr(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(SyGuS_v1Parser.Sort_exprContext)
             else:
-                return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext,i)
-
+                return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext, i)
 
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_let_term
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLet_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitLet_term"):
                 return visitor.visitLet_term(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def let_term(self):
 
         localctx = SyGuS_v1Parser.Let_termContext(self, self._ctx, self.state)
         self.enterRule(localctx, 26, self.RULE_let_term)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 185
@@ -1364,7 +1396,7 @@ class SyGuS_v1Parser ( Parser ):
             self.match(SyGuS_v1Parser.T__9)
             self.state = 187
             self.match(SyGuS_v1Parser.LEFT_PARENS)
-            self.state = 194 
+            self.state = 194
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
@@ -1378,10 +1410,10 @@ class SyGuS_v1Parser ( Parser ):
                 self.term()
                 self.state = 192
                 self.match(SyGuS_v1Parser.RIGHT_PARENS)
-                self.state = 196 
+                self.state = 196
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (_la==SyGuS_v1Parser.LEFT_PARENS):
+                if not (_la == SyGuS_v1Parser.LEFT_PARENS):
                     break
 
             self.state = 198
@@ -1398,193 +1430,192 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class G_termContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
-
 
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_g_term
 
-     
-        def copyFrom(self, ctx:ParserRuleContext):
+        def copyFrom(self, ctx: ParserRuleContext):
             super().copyFrom(ctx)
 
-
-
     class Symbol_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def SYMBOL(self):
             return self.getToken(SyGuS_v1Parser.SYMBOL, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSymbol_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitSymbol_g_term"):
                 return visitor.visitSymbol_g_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Lit_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def literal(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.LiteralContext,0)
+            return self.getTypedRuleContext(SyGuS_v1Parser.LiteralContext, 0)
 
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLit_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitLit_g_term"):
                 return visitor.visitLit_g_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Let_g_term_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def let_g_term(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Let_g_termContext,0)
+            return self.getTypedRuleContext(SyGuS_v1Parser.Let_g_termContext, 0)
 
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLet_g_term_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitLet_g_term_g_term"):
                 return visitor.visitLet_g_term_g_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Variable_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def LEFT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.LEFT_PARENS, 0)
+
         def sort_expr(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext,0)
+            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext, 0)
 
         def RIGHT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitVariable_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitVariable_g_term"):
                 return visitor.visitVariable_g_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Constant_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def LEFT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.LEFT_PARENS, 0)
+
         def sort_expr(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext,0)
+            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext, 0)
 
         def RIGHT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitConstant_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitConstant_g_term"):
                 return visitor.visitConstant_g_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Input_variable_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def LEFT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.LEFT_PARENS, 0)
+
         def sort_expr(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext,0)
+            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext, 0)
 
         def RIGHT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitInput_variable_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitInput_variable_g_term"):
                 return visitor.visitInput_variable_g_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Local_variable_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def LEFT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.LEFT_PARENS, 0)
+
         def sort_expr(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext,0)
+            return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext, 0)
 
         def RIGHT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLocal_variable_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitLocal_variable_g_term"):
                 return visitor.visitLocal_variable_g_term(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Func_g_termContext(G_termContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.G_termContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.G_termContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def LEFT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.LEFT_PARENS, 0)
+
         def SYMBOL(self):
             return self.getToken(SyGuS_v1Parser.SYMBOL, 0)
+
         def RIGHT_PARENS(self):
             return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, 0)
-        def g_term(self, i:int=None):
+
+        def g_term(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(SyGuS_v1Parser.G_termContext)
             else:
-                return self.getTypedRuleContext(SyGuS_v1Parser.G_termContext,i)
+                return self.getTypedRuleContext(SyGuS_v1Parser.G_termContext, i)
 
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitFunc_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitFunc_g_term"):
                 return visitor.visitFunc_g_term(self)
             else:
                 return visitor.visitChildren(self)
-
-
 
     def g_term(self):
 
         localctx = SyGuS_v1Parser.G_termContext(self, self._ctx, self.state)
         self.enterRule(localctx, 28, self.RULE_g_term)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.state = 234
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,14,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input, 14, self._ctx)
             if la_ == 1:
                 localctx = SyGuS_v1Parser.Func_g_termContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
@@ -1595,7 +1626,18 @@ class SyGuS_v1Parser ( Parser ):
                 self.state = 207
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while (((_la) & ~0x3f) == 0 and ((1 << _la) & ((1 << SyGuS_v1Parser.LEFT_PARENS) | (1 << SyGuS_v1Parser.SYMBOL) | (1 << SyGuS_v1Parser.POSITIVE_INT_CONST) | (1 << SyGuS_v1Parser.NEGATIVE_INT_CONST) | (1 << SyGuS_v1Parser.REAL_CONST) | (1 << SyGuS_v1Parser.BOOL_CONST) | (1 << SyGuS_v1Parser.BV_CONST))) != 0):
+                while ((_la) & ~0x3F) == 0 and (
+                    (1 << _la)
+                    & (
+                        (1 << SyGuS_v1Parser.LEFT_PARENS)
+                        | (1 << SyGuS_v1Parser.SYMBOL)
+                        | (1 << SyGuS_v1Parser.POSITIVE_INT_CONST)
+                        | (1 << SyGuS_v1Parser.NEGATIVE_INT_CONST)
+                        | (1 << SyGuS_v1Parser.REAL_CONST)
+                        | (1 << SyGuS_v1Parser.BOOL_CONST)
+                        | (1 << SyGuS_v1Parser.BV_CONST)
+                    )
+                ) != 0:
                     self.state = 204
                     self.g_term()
                     self.state = 209
@@ -1679,7 +1721,6 @@ class SyGuS_v1Parser ( Parser ):
                 self.match(SyGuS_v1Parser.RIGHT_PARENS)
                 pass
 
-
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1688,62 +1729,57 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Let_g_termContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LEFT_PARENS(self, i:int=None):
+        def LEFT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.LEFT_PARENS)
             else:
                 return self.getToken(SyGuS_v1Parser.LEFT_PARENS, i)
 
-        def RIGHT_PARENS(self, i:int=None):
+        def RIGHT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.RIGHT_PARENS)
             else:
                 return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, i)
 
-        def g_term(self, i:int=None):
+        def g_term(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(SyGuS_v1Parser.G_termContext)
             else:
-                return self.getTypedRuleContext(SyGuS_v1Parser.G_termContext,i)
+                return self.getTypedRuleContext(SyGuS_v1Parser.G_termContext, i)
 
-
-        def SYMBOL(self, i:int=None):
+        def SYMBOL(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.SYMBOL)
             else:
                 return self.getToken(SyGuS_v1Parser.SYMBOL, i)
 
-        def sort_expr(self, i:int=None):
+        def sort_expr(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(SyGuS_v1Parser.Sort_exprContext)
             else:
-                return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext,i)
-
+                return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext, i)
 
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_let_g_term
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitLet_g_term" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitLet_g_term"):
                 return visitor.visitLet_g_term(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def let_g_term(self):
 
         localctx = SyGuS_v1Parser.Let_g_termContext(self, self._ctx, self.state)
         self.enterRule(localctx, 30, self.RULE_let_g_term)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 236
@@ -1752,7 +1788,7 @@ class SyGuS_v1Parser ( Parser ):
             self.match(SyGuS_v1Parser.T__9)
             self.state = 238
             self.match(SyGuS_v1Parser.LEFT_PARENS)
-            self.state = 245 
+            self.state = 245
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
@@ -1766,10 +1802,10 @@ class SyGuS_v1Parser ( Parser ):
                 self.g_term()
                 self.state = 243
                 self.match(SyGuS_v1Parser.RIGHT_PARENS)
-                self.state = 247 
+                self.state = 247
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (_la==SyGuS_v1Parser.LEFT_PARENS):
+                if not (_la == SyGuS_v1Parser.LEFT_PARENS):
                     break
 
             self.state = 249
@@ -1786,14 +1822,14 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Sort_exprContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def LEFT_PARENS(self, i:int=None):
+        def LEFT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.LEFT_PARENS)
             else:
@@ -1802,46 +1838,42 @@ class SyGuS_v1Parser ( Parser ):
         def POSITIVE_INT_CONST(self):
             return self.getToken(SyGuS_v1Parser.POSITIVE_INT_CONST, 0)
 
-        def RIGHT_PARENS(self, i:int=None):
+        def RIGHT_PARENS(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.RIGHT_PARENS)
             else:
                 return self.getToken(SyGuS_v1Parser.RIGHT_PARENS, i)
 
-        def SYMBOL(self, i:int=None):
+        def SYMBOL(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.SYMBOL)
             else:
                 return self.getToken(SyGuS_v1Parser.SYMBOL, i)
 
-        def sort_expr(self, i:int=None):
+        def sort_expr(self, i: int = None):
             if i is None:
                 return self.getTypedRuleContexts(SyGuS_v1Parser.Sort_exprContext)
             else:
-                return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext,i)
-
+                return self.getTypedRuleContext(SyGuS_v1Parser.Sort_exprContext, i)
 
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_sort_expr
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitSort_expr" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitSort_expr"):
                 return visitor.visitSort_expr(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def sort_expr(self):
 
         localctx = SyGuS_v1Parser.Sort_exprContext(self, self._ctx, self.state)
         self.enterRule(localctx, 32, self.RULE_sort_expr)
-        self._la = 0 # Token type
+        self._la = 0  # Token type
         try:
             self.state = 277
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,17,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input, 17, self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 253
@@ -1880,16 +1912,16 @@ class SyGuS_v1Parser ( Parser ):
                 self.match(SyGuS_v1Parser.T__18)
                 self.state = 262
                 self.match(SyGuS_v1Parser.LEFT_PARENS)
-                self.state = 264 
+                self.state = 264
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
                 while True:
                     self.state = 263
                     self.match(SyGuS_v1Parser.SYMBOL)
-                    self.state = 266 
+                    self.state = 266
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
-                    if not (_la==SyGuS_v1Parser.SYMBOL):
+                    if not (_la == SyGuS_v1Parser.SYMBOL):
                         break
 
                 self.state = 268
@@ -1918,7 +1950,6 @@ class SyGuS_v1Parser ( Parser ):
                 self.match(SyGuS_v1Parser.SYMBOL)
                 pass
 
-
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1927,120 +1958,114 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class LiteralContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
-
 
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_literal
 
-     
-        def copyFrom(self, ctx:ParserRuleContext):
+        def copyFrom(self, ctx: ParserRuleContext):
             super().copyFrom(ctx)
 
-
-
     class Real_literalContext(LiteralContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.LiteralContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.LiteralContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def REAL_CONST(self):
             return self.getToken(SyGuS_v1Parser.REAL_CONST, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitReal_literal" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitReal_literal"):
                 return visitor.visitReal_literal(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class N_int_literalContext(LiteralContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.LiteralContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.LiteralContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def NEGATIVE_INT_CONST(self):
             return self.getToken(SyGuS_v1Parser.NEGATIVE_INT_CONST, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitN_int_literal" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitN_int_literal"):
                 return visitor.visitN_int_literal(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Bool_literalContext(LiteralContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.LiteralContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.LiteralContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def BOOL_CONST(self):
             return self.getToken(SyGuS_v1Parser.BOOL_CONST, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitBool_literal" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitBool_literal"):
                 return visitor.visitBool_literal(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Bv_literalContext(LiteralContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.LiteralContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.LiteralContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def BV_CONST(self):
             return self.getToken(SyGuS_v1Parser.BV_CONST, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitBv_literal" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitBv_literal"):
                 return visitor.visitBv_literal(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class P_int_literalContext(LiteralContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.LiteralContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.LiteralContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def POSITIVE_INT_CONST(self):
             return self.getToken(SyGuS_v1Parser.POSITIVE_INT_CONST, 0)
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitP_int_literal" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitP_int_literal"):
                 return visitor.visitP_int_literal(self)
             else:
                 return visitor.visitChildren(self)
 
-
     class Enum_literalContext(LiteralContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a SyGuS_v1Parser.LiteralContext
+        def __init__(
+            self, parser, ctx: ParserRuleContext
+        ):  # actually a SyGuS_v1Parser.LiteralContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
         def enum_const(self):
-            return self.getTypedRuleContext(SyGuS_v1Parser.Enum_constContext,0)
+            return self.getTypedRuleContext(SyGuS_v1Parser.Enum_constContext, 0)
 
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitEnum_literal" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitEnum_literal"):
                 return visitor.visitEnum_literal(self)
             else:
                 return visitor.visitChildren(self)
-
-
 
     def literal(self):
 
@@ -2097,14 +2122,14 @@ class SyGuS_v1Parser ( Parser ):
             self.exitRule()
         return localctx
 
-
     class Enum_constContext(ParserRuleContext):
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+        def __init__(
+            self, parser, parent: ParserRuleContext = None, invokingState: int = -1
+        ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def SYMBOL(self, i:int=None):
+        def SYMBOL(self, i: int = None):
             if i is None:
                 return self.getTokens(SyGuS_v1Parser.SYMBOL)
             else:
@@ -2113,14 +2138,11 @@ class SyGuS_v1Parser ( Parser ):
         def getRuleIndex(self):
             return SyGuS_v1Parser.RULE_enum_const
 
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitEnum_const" ):
+        def accept(self, visitor: ParseTreeVisitor):
+            if hasattr(visitor, "visitEnum_const"):
                 return visitor.visitEnum_const(self)
             else:
                 return visitor.visitChildren(self)
-
-
-
 
     def enum_const(self):
 
@@ -2141,8 +2163,3 @@ class SyGuS_v1Parser ( Parser ):
         finally:
             self.exitRule()
         return localctx
-
-
-
-
-

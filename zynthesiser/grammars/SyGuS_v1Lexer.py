@@ -1,9 +1,9 @@
 # Generated from SyGuS_v1.g4 by ANTLR 4.7.2
-from antlr4 import *
+import sys
 from io import StringIO
 from typing.io import TextIO
-import sys
 
+from antlr4 import *
 
 
 def serializedATN():
@@ -14,8 +14,8 @@ def serializedATN():
         buf.write("\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22\4\23")
         buf.write("\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30")
         buf.write("\4\31\t\31\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36")
-        buf.write("\t\36\4\37\t\37\4 \t \4!\t!\4\"\t\"\4#\t#\4$\t$\4%\t%")
-        buf.write("\4&\t&\4\'\t\'\4(\t(\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3")
+        buf.write('\t\36\4\37\t\37\4 \t \4!\t!\4"\t"\4#\t#\4$\t$\4%\t%')
+        buf.write("\4&\t&\4'\t'\4(\t(\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3")
         buf.write("\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3")
         buf.write("\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\5\3")
         buf.write("\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6")
@@ -42,17 +42,17 @@ def serializedATN():
         buf.write("\3\37\3\37\3\37\3\37\3\37\6\37\u015b\n\37\r\37\16\37\u015c")
         buf.write("\5\37\u015f\n\37\3 \3 \7 \u0163\n \f \16 \u0166\13 \3")
         buf.write(" \5 \u0169\n \3 \3 \3 \3 \3!\6!\u0170\n!\r!\16!\u0171")
-        buf.write("\3!\3!\3\"\5\"\u0177\n\"\3\"\3\"\3\"\3\"\3#\3#\3$\3$\3")
-        buf.write("%\3%\3&\3&\3\'\3\'\3(\3(\3\u0164\2)\3\3\5\4\7\5\t\6\13")
+        buf.write('\3!\3!\3"\5"\u0177\n"\3"\3"\3"\3"\3#\3#\3$\3$\3')
+        buf.write("%\3%\3&\3&\3'\3'\3(\3(\3\u0164\2)\3\3\5\4\7\5\t\6\13")
         buf.write("\7\r\b\17\t\21\n\23\13\25\f\27\r\31\16\33\17\35\20\37")
-        buf.write("\21!\22#\23%\24\'\25)\26+\27-\30/\31\61\32\63\33\65\34")
-        buf.write("\67\359\36;\37= ?!A\"C#E\2G\2I\2K\2M\2O\2\3\2\t\4\2\13")
-        buf.write("\13\"\"\3\2c|\3\2C\\\n\2##&(,-/\61>A`a~~\u0080\u0080\3")
+        buf.write("\21!\22#\23%\24'\25)\26+\27-\30/\31\61\32\63\33\65\34")
+        buf.write('\67\359\36;\37= ?!A"C#E\2G\2I\2K\2M\2O\2\3\2\t\4\2\13')
+        buf.write('\13""\3\2c|\3\2C\\\n\2##&(,-/\61>A`a~~\u0080\u0080\3')
         buf.write("\2\62;\3\2\62\63\4\2CHch\2\u0199\2\3\3\2\2\2\2\5\3\2\2")
         buf.write("\2\2\7\3\2\2\2\2\t\3\2\2\2\2\13\3\2\2\2\2\r\3\2\2\2\2")
         buf.write("\17\3\2\2\2\2\21\3\2\2\2\2\23\3\2\2\2\2\25\3\2\2\2\2\27")
         buf.write("\3\2\2\2\2\31\3\2\2\2\2\33\3\2\2\2\2\35\3\2\2\2\2\37\3")
-        buf.write("\2\2\2\2!\3\2\2\2\2#\3\2\2\2\2%\3\2\2\2\2\'\3\2\2\2\2")
+        buf.write("\2\2\2\2!\3\2\2\2\2#\3\2\2\2\2%\3\2\2\2\2'\3\2\2\2\2")
         buf.write(")\3\2\2\2\2+\3\2\2\2\2-\3\2\2\2\2/\3\2\2\2\2\61\3\2\2")
         buf.write("\2\2\63\3\2\2\2\2\65\3\2\2\2\2\67\3\2\2\2\29\3\2\2\2\2")
         buf.write(";\3\2\2\2\2=\3\2\2\2\2?\3\2\2\2\2A\3\2\2\2\2C\3\2\2\2")
@@ -61,7 +61,7 @@ def serializedATN():
         buf.write("\2\23\u00ab\3\2\2\2\25\u00b7\3\2\2\2\27\u00bb\3\2\2\2")
         buf.write("\31\u00c4\3\2\2\2\33\u00cd\3\2\2\2\35\u00db\3\2\2\2\37")
         buf.write("\u00e9\3\2\2\2!\u00ed\3\2\2\2#\u00f2\3\2\2\2%\u00f7\3")
-        buf.write("\2\2\2\'\u00fe\3\2\2\2)\u0103\3\2\2\2+\u0109\3\2\2\2-")
+        buf.write("\2\2\2'\u00fe\3\2\2\2)\u0103\3\2\2\2+\u0109\3\2\2\2-")
         buf.write("\u010c\3\2\2\2/\u010e\3\2\2\2\61\u0113\3\2\2\2\63\u011e")
         buf.write("\3\2\2\2\65\u012a\3\2\2\2\67\u012e\3\2\2\29\u0135\3\2")
         buf.write("\2\2;\u014b\3\2\2\2=\u015e\3\2\2\2?\u0160\3\2\2\2A\u016f")
@@ -113,7 +113,7 @@ def serializedATN():
         buf.write("\7g\2\2\u00e8\36\3\2\2\2\u00e9\u00ea\7K\2\2\u00ea\u00eb")
         buf.write("\7p\2\2\u00eb\u00ec\7v\2\2\u00ec \3\2\2\2\u00ed\u00ee")
         buf.write("\7D\2\2\u00ee\u00ef\7q\2\2\u00ef\u00f0\7q\2\2\u00f0\u00f1")
-        buf.write("\7n\2\2\u00f1\"\3\2\2\2\u00f2\u00f3\7T\2\2\u00f3\u00f4")
+        buf.write('\7n\2\2\u00f1"\3\2\2\2\u00f2\u00f3\7T\2\2\u00f3\u00f4')
         buf.write("\7g\2\2\u00f4\u00f5\7c\2\2\u00f5\u00f6\7n\2\2\u00f6$\3")
         buf.write("\2\2\2\u00f7\u00f8\7D\2\2\u00f8\u00f9\7k\2\2\u00f9\u00fa")
         buf.write("\7v\2\2\u00fa\u00fb\7X\2\2\u00fb\u00fc\7g\2\2\u00fc\u00fd")
@@ -151,7 +151,7 @@ def serializedATN():
         buf.write("\u0148\7c\2\2\u0148\u0149\7n\2\2\u0149\u014a\7u\2\2\u014a")
         buf.write("\u014c\7g\2\2\u014b\u0142\3\2\2\2\u014b\u0146\3\2\2\2")
         buf.write("\u014c<\3\2\2\2\u014d\u014e\7%\2\2\u014e\u014f\7d\2\2")
-        buf.write("\u014f\u0151\3\2\2\2\u0150\u0152\5M\'\2\u0151\u0150\3")
+        buf.write("\u014f\u0151\3\2\2\2\u0150\u0152\5M'\2\u0151\u0150\3")
         buf.write("\2\2\2\u0152\u0153\3\2\2\2\u0153\u0151\3\2\2\2\u0153\u0154")
         buf.write("\3\2\2\2\u0154\u015f\3\2\2\2\u0155\u0156\7%\2\2\u0156")
         buf.write("\u0157\7z\2\2\u0157\u015a\3\2\2\2\u0158\u015b\5K&\2\u0159")
@@ -169,7 +169,7 @@ def serializedATN():
         buf.write("\u0172\u0173\3\2\2\2\u0173\u0174\b!\2\2\u0174B\3\2\2\2")
         buf.write("\u0175\u0177\7\17\2\2\u0176\u0175\3\2\2\2\u0176\u0177")
         buf.write("\3\2\2\2\u0177\u0178\3\2\2\2\u0178\u0179\7\f\2\2\u0179")
-        buf.write("\u017a\3\2\2\2\u017a\u017b\b\"\2\2\u017bD\3\2\2\2\u017c")
+        buf.write('\u017a\3\2\2\2\u017a\u017b\b"\2\2\u017bD\3\2\2\2\u017c')
         buf.write("\u017d\t\3\2\2\u017dF\3\2\2\2\u017e\u017f\t\4\2\2\u017f")
         buf.write("H\3\2\2\2\u0180\u0181\t\5\2\2\u0181J\3\2\2\2\u0182\u0183")
         buf.write("\t\6\2\2\u0183L\3\2\2\2\u0184\u0185\t\7\2\2\u0185N\3\2")
@@ -184,7 +184,7 @@ class SyGuS_v1Lexer(Lexer):
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
-    decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]
+    decisionsToDFA = [DFA(ds, i) for i, ds in enumerate(atn.decisionToState)]
 
     T__0 = 1
     T__1 = 2
@@ -220,38 +220,102 @@ class SyGuS_v1Lexer(Lexer):
     WHITESPACE = 32
     NEWLINE = 33
 
-    channelNames = [ u"DEFAULT_TOKEN_CHANNEL", u"HIDDEN" ]
+    channelNames = [u"DEFAULT_TOKEN_CHANNEL", u"HIDDEN"]
 
-    modeNames = [ "DEFAULT_MODE" ]
+    modeNames = ["DEFAULT_MODE"]
 
-    literalNames = [ "<INVALID>",
-            "'set-logic'", "'define-sort'", "'declare-var'", "'declare-fun'", 
-            "'define-fun'", "'synth-fun'", "'constraint'", "'check-synth'", 
-            "'set-options'", "'let'", "'Constant'", "'Variable'", "'InputVariable'", 
-            "'LocalVariable'", "'Int'", "'Bool'", "'Real'", "'BitVec'", 
-            "'Enum'", "'Array'", "'::'", "'('", "')'" ]
+    literalNames = [
+        "<INVALID>",
+        "'set-logic'",
+        "'define-sort'",
+        "'declare-var'",
+        "'declare-fun'",
+        "'define-fun'",
+        "'synth-fun'",
+        "'constraint'",
+        "'check-synth'",
+        "'set-options'",
+        "'let'",
+        "'Constant'",
+        "'Variable'",
+        "'InputVariable'",
+        "'LocalVariable'",
+        "'Int'",
+        "'Bool'",
+        "'Real'",
+        "'BitVec'",
+        "'Enum'",
+        "'Array'",
+        "'::'",
+        "'('",
+        "')'",
+    ]
 
-    symbolicNames = [ "<INVALID>",
-            "LEFT_PARENS", "RIGHT_PARENS", "SYMBOL", "QUOTED_LITERAL", "POSITIVE_INT_CONST", 
-            "NEGATIVE_INT_CONST", "REAL_CONST", "BOOL_CONST", "BV_CONST", 
-            "COMMENT", "WHITESPACE", "NEWLINE" ]
+    symbolicNames = [
+        "<INVALID>",
+        "LEFT_PARENS",
+        "RIGHT_PARENS",
+        "SYMBOL",
+        "QUOTED_LITERAL",
+        "POSITIVE_INT_CONST",
+        "NEGATIVE_INT_CONST",
+        "REAL_CONST",
+        "BOOL_CONST",
+        "BV_CONST",
+        "COMMENT",
+        "WHITESPACE",
+        "NEWLINE",
+    ]
 
-    ruleNames = [ "T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", 
-                  "T__7", "T__8", "T__9", "T__10", "T__11", "T__12", "T__13", 
-                  "T__14", "T__15", "T__16", "T__17", "T__18", "T__19", 
-                  "T__20", "LEFT_PARENS", "RIGHT_PARENS", "SYMBOL", "QUOTED_LITERAL", 
-                  "POSITIVE_INT_CONST", "NEGATIVE_INT_CONST", "REAL_CONST", 
-                  "BOOL_CONST", "BV_CONST", "COMMENT", "WHITESPACE", "NEWLINE", 
-                  "LOWERCASE_LETTER", "UPPERCASE_LETTER", "SPECIAL_CHAR", 
-                  "DIGIT", "BINARY_DIGIT", "HEXADECIMAL_DIGIT" ]
+    ruleNames = [
+        "T__0",
+        "T__1",
+        "T__2",
+        "T__3",
+        "T__4",
+        "T__5",
+        "T__6",
+        "T__7",
+        "T__8",
+        "T__9",
+        "T__10",
+        "T__11",
+        "T__12",
+        "T__13",
+        "T__14",
+        "T__15",
+        "T__16",
+        "T__17",
+        "T__18",
+        "T__19",
+        "T__20",
+        "LEFT_PARENS",
+        "RIGHT_PARENS",
+        "SYMBOL",
+        "QUOTED_LITERAL",
+        "POSITIVE_INT_CONST",
+        "NEGATIVE_INT_CONST",
+        "REAL_CONST",
+        "BOOL_CONST",
+        "BV_CONST",
+        "COMMENT",
+        "WHITESPACE",
+        "NEWLINE",
+        "LOWERCASE_LETTER",
+        "UPPERCASE_LETTER",
+        "SPECIAL_CHAR",
+        "DIGIT",
+        "BINARY_DIGIT",
+        "HEXADECIMAL_DIGIT",
+    ]
 
     grammarFileName = "SyGuS_v1.g4"
 
-    def __init__(self, input=None, output:TextIO = sys.stdout):
+    def __init__(self, input=None, output: TextIO = sys.stdout):
         super().__init__(input, output)
         self.checkVersion("4.7.2")
-        self._interp = LexerATNSimulator(self, self.atn, self.decisionsToDFA, PredictionContextCache())
+        self._interp = LexerATNSimulator(
+            self, self.atn, self.decisionsToDFA, PredictionContextCache()
+        )
         self._actions = None
         self._predicates = None
-
-
