@@ -1,75 +1,72 @@
 import re
-
 import z3
+from .error import ZynthesiserException
 
 
-def is_int_literal(str):
+def is_int_literal(s: str):
     int_pattern = re.compile(r"^-?[0-9]+$")
-    if int_pattern.match(str) is not None:
+    if int_pattern.match(s) is not None:
         return True
     else:
         return False
 
 
-def is_real_literal(str):
+def is_real_literal(s: str):
     real_pattern = re.compile(r"^-?[0-9]+\.[0-9]+$")
-    if real_pattern.match(str) is not None:
+    if real_pattern.match(s) is not None:
         return True
     else:
         return False
 
 
-def is_bool_literal(str):
-    if str == "true" or str == "false":
+def is_bool_literal(s: str):
+    if s == "true" or s == "false":
         return True
     else:
         return False
 
 
-def is_bv_literal(str):
+def is_bv_literal(s: str):
     bv_pattern = re.compile(r"^(?:#b[01]+)|(?:#x[0-9a-fA-F]+)$")
-    if bv_pattern.match(str) is not None:
+    if bv_pattern.match(s) is not None:
         return True
     else:
         return False
 
 
-def is_symbol(str):
+def is_symbol(s: str):
     symbol_pattern = re.compile(
         r"^[a-zA-Z_+\-*&|!~<>=/%?\.$\^][a-zA-Z_+\-*&|!~<>=/%?\.$\^0-9]*$"
     )
-    if symbol_pattern.match(str) is not None:
+    if symbol_pattern.match(s) is not None:
         return True
     else:
         return False
 
 
-def str_to_sort(sort_str):
-    z3_sort = z3.BoolSort()
+def str_to_sort(sort_str: str):
     if sort_str == "Bool":
-        z3_sort = z3.BoolSort()
-    elif sort_str == "Int":
-        z3_sort = z3.IntSort()
-    elif sort_str == "Real":
-        z3_sort = z3.RealSort()
-    else:
-        bitvec_pattern = re.compile(r"^\(BitVec ([0-9]+)\)$")
-        match = bitvec_pattern.match(sort_str)
-        if match != None:
-            size = int(match.groups()[0])
-            z3_sort = z3.BitVecSort(size)
-        else:
-            enum_pattern = re.compile(
+        return z3.BoolSort()
+    if sort_str == "Int":
+        return z3.IntSort()
+    if sort_str == "Real":
+        return z3.RealSort()
+    
+    bitvec_pattern = re.compile(r"^\(BitVec ([0-9]+)\)$")
+    match = bitvec_pattern.match(sort_str)
+    if match is not None:
+        size = int(match.groups()[0])
+        return z3.BitVecSort(size)
+    
+    enum_pattern = re.compile(
                 r"^\(Enum \( ((?:[a-zA-Z_+\-*&|!~<>=/%?\.$\^][a-zA-Z_+\-*&|!~<>=/%?\.$\^0-9]* )+)\)\)$"
             )
-            match = enum_pattern.match(sort_str)
-            if match != None:
-                values = match.groups()[0].strip()
-                z3_sort = z3.EnumSort("Enum( {} )".format(values), values.split())
-            # else:
-            #     array_pattern = re.compile
+    match = enum_pattern.match(sort_str)
+    if match is not None:
+        values = match.groups()[0].strip()
+        return z3.EnumSort("Enum( {} )".format(values), values.split())
 
-    return z3_sort
+    raise ZynthesiserException(f"str_to_sort: unrecognised sort: {sort_str}")
 
 
 def contains_func(expr, func):

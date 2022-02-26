@@ -3,7 +3,7 @@ from abc import ABCMeta, abstractmethod
 import z3
 
 
-class Symbol_Mapper(metaclass=ABCMeta):
+class SymbolMapper(metaclass=ABCMeta):
     _theory_z3_to_expr_str_mapping = {
         "Core": {
             # Boolean operators
@@ -110,26 +110,26 @@ class Symbol_Mapper(metaclass=ABCMeta):
     def get_symbols_from_logic(cls, logic):
         symbol_table = {}
 
-        for theory in Symbol_Mapper._logic_mapping[logic]:
-            symbol_table.update(Symbol_Mapper._theory_z3_to_expr_str_mapping[theory])
+        for theory in SymbolMapper._logic_mapping[logic]:
+            symbol_table.update(SymbolMapper._theory_z3_to_expr_str_mapping[theory])
 
         return symbol_table
 
     @classmethod
     def get_symbol_from_function(cls, symbol, logic):
-        symbol_table = Symbol_Mapper.get_symbols_from_logic(logic)
+        symbol_table = SymbolMapper.get_symbols_from_logic(logic)
         return symbol_table[symbol]
 
     @classmethod
     def get_functions_from_logic(cls, logic):
         symbol_table = {}
 
-        for theory in Symbol_Mapper._logic_mapping[logic]:
-            symbol_table.update(Symbol_Mapper._theory_expr_str_to_z3_mapping[theory])
+        for theory in SymbolMapper._logic_mapping[logic]:
+            symbol_table.update(SymbolMapper._theory_expr_str_to_z3_mapping[theory])
 
         return symbol_table
 
     @classmethod
     def get_function_from_symbol(cls, symbol, logic):
-        symbol_table = Symbol_Mapper.get_functions_from_logic(logic)
+        symbol_table = SymbolMapper.get_functions_from_logic(logic)
         return symbol_table[symbol]

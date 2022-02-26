@@ -1,0 +1,166 @@
+//// See https://sygus.org for a formal specification of the input format grammar
+
+/// Nonterminals
+
+attribute : KEYWORD
+          | KEYWORD attribute_value
+
+attribute_value : SYMBOL
+                | LPAREN attribute_value RPAREN
+
+bf_term : identifier
+        | LITERAL
+        | LPAREN identifier bf_term+ RPAREN
+        | LPAREN EXCLAMATION_MARK bf_term attribute+ RPAREN
+
+cmd : LPAREN ASSUME term RPAREN
+    | LPAREN CHECK_SYNTH RPAREN
+    | LPAREN CHC_CONSTRAINT LPAREN sorted_var* RPAREN term term RPAREN
+    | LPAREN CONSTRAINT term RPAREN
+    | LPAREN DECLARE_VAR SYMBOL sort RPAREN
+    | LPAREN DECLARE_WEIGHT SYMBOL attribute* RPAREN
+    | LPAREN INV_CONSTRAINT SYMBOL SYMBOL SYMBOL SYMBOL RPAREN
+    | LPAREN OPTIMIZE_SYNTH LPAREN term* RPAREN attribute* RPAREN
+    | LPAREN SET_FEATURE feature BOOL_CONST RPAREN
+    | LPAREN SYNTH_FUN SYMBOL LPAREN sorted_var* RPAREN sort grammar_def? RPAREN
+    | oracle_cmd
+    | smt_cmd
+
+dt_cons_decl : LPAREN SYMBOL sorted_var* RPAREN
+
+dt_decl : LPAREN dt_cons_decl+ RPAREN
+
+feature : KEYWORD
+
+grammar_def : LPAREN sorted_var* RPAREN LPAREN grouped_rule_list* RPAREN
+
+grouped_rule_list : LPAREN SYMBOL sort LPAREN gterm+ RPAREN RPAREN
+
+gterm : LPAREN CONSTANT sort RPAREN
+      | LPAREN VARIABLE sort RPAREN
+      | bf_term
+
+identifier : SYMBOL
+           | LPAREN UNDERSCORE SYMBOL index+ RPAREN
+
+index : NUMERAL
+      | SYMBOL
+
+oracle_cmd : LPAREN ORACLE_ASSUME LPAREN sorted_var* RPAREN LPAREN sorted_var* RPAREN term SYMBOL RPAREN
+           | LPAREN ORACLE_CONSTRAINT LPAREN sorted_var* RPAREN LPAREN sorted_var* RPAREN term SYMBOL RPAREN
+           | LPAREN DECLARE_ORACLE_FUN SYMBOL LPAREN sort* RPAREN sort SYMBOL RPAREN
+           | LPAREN ORACLE_CONSTRAINT_IO SYMBOL SYMBOL RPAREN
+           | LPAREN ORACLE_CONSTRAINT_CEX SYMBOL SYMBOL RPAREN
+           | LPAREN ORACLE_CONSTRAINT_MEMBERSHIP SYMBOL SYMBOL RPAREN
+           | LPAREN ORACLE_CONSTRAINT_POSWITNESS SYMBOL SYMBOL RPAREN
+           | LPAREN ORACLE_CONSTRAINT_NEGWITNESS SYMBOL SYMBOL RPAREN
+           | LPAREN DECLARE_CORRECTNESS_ORACLE SYMBOL SYMBOL RPAREN
+           | LPAREN DECLARE_CORRECTNESS_CEX_ORACLE SYMBOL SYMBOL RPAREN
+
+smt_cmd : LPAREN DECLARE_DATATYPE SYMBOL dt_decl RPAREN
+        | LPAREN DECLARE_DATATYPES LPAREN sort_decl* RPAREN LPAREN dt_decl* RPAREN RPAREN
+        | LPAREN DECLARE_SORT SYMBOL NUMERAL RPAREN
+        | LPAREN DEFINE_FUN SYMBOL LPAREN sorted_var* RPAREN sort term RPAREN
+        | LPAREN DEFINE_SORT SYMBOL sort RPAREN
+        | LPAREN SET_INFO KEYWORD LITERAL RPAREN
+        | LPAREN SET_LOGIC SYMBOL RPAREN
+        | LPAREN SET_OPTION KEYWORD LITERAL RPAREN
+
+sort : identifier
+     | LPAREN identifier sort+ RPAREN
+
+sort_decl : LPAREN SYMBOL NUMERAL RPAREN
+
+sorted_var : LPAREN SYMBOL sort RPAREN
+
+sygus : cmd*
+
+term : identifier
+     | LITERAL
+     | LPAREN identifier term+ RPAREN
+     | LPAREN EXCLAMATION_MARK term attribute+ RPAREN
+     | LPAREN EXISTS LPAREN sorted_var+ RPAREN term RPAREN
+     | LPAREN FOR_ALL LPAREN sorted_var+ RPAREN term RPAREN
+     | LPAREN LET LPAREN var_binding+ RPAREN term RPAREN
+
+var_binding : LPAREN SYMBOL term RPAREN
+
+/// Terminals
+
+ASSUME : "assume"
+BIN_CONST : "#b" ("0" | "1")+
+BOOL_CONST : "true" | "false"
+CHC_CONSTRAINT : "chc-constraint"
+CHECK_SYNTH : "check-synth"
+CONSTANT : "Constant"
+CONSTRAINT : "contraint"
+DECIMAL : NUMERAL "." "0"* NUMERAL
+DECLARE_CORRECTNESS_ORACLE : "declare-correctness-oracle"
+DECLARE_CORRECTNESS_CEX_ORACLE : "declare-correctness-cex-oracle"
+DECLARE_DATATYPE : "declare-datatype"
+DECLARE_DATATYPES : "declare-datatypes"
+DECLARE_ORACLE_FUN : "declare-oracle-fun"
+DECLARE_SORT : "declare-sort"
+DECLARE_VAR : "declare-var"
+DECLARE_WEIGHT : "declare-weight"
+DEFINE_FUN : "define-fun"
+DEFINE_SORT : "define-sort"
+DIGIT.-2 : /[0-9]/
+EXCLAMATION_MARK : "!"
+EXISTS : "exists"
+FOR_ALL : "forall"
+HEX_CONST : "#x" (/[A-F]/ | /[0-9]/)+
+INV_CONSTRAINT : "inv-constraint"
+KEYWORD.-1 : ":" SYMBOL
+LET : "let"
+LITERAL : NUMERAL
+        | DECIMAL
+        | BOOL_CONST
+        | HEX_CONST
+        | BIN_CONST
+        | STRING_CONST
+LPAREN : "("
+LOWERCASE_LETTER.-2 : /[a-z]/
+NON_ZERO_DIGIT.-2 : /[1-9]/
+NUMERAL : DIGIT
+        | NON_ZERO_DIGIT DIGIT*
+OPTIMIZE_SYNTH : "optimize-synth"
+ORACLE_ASSUME : "oracle-assume"
+ORACLE_CONSTRAINT : "oracle-constraint"
+ORACLE_CONSTRAINT_IO : "oracle-constraint-io"
+ORACLE_CONSTRAINT_CEX : "oracle-constraint-cex"
+ORACLE_CONSTRAINT_MEMBERSHIP : "oracle-constraint-membership"
+ORACLE_CONSTRAINT_POSWITNESS : "oracle-constraint-poswitness"
+ORACLE_CONSTRAINT_NEGWITNESS : "oracle-constraint-negwitness"
+RECURSION_FEATURE : ":recursion"
+RPAREN : ")"
+SET_FEATURE : "set-feature"
+SET_INFO : "set-info"
+SET_LOGIC : "set-logic"
+SET_OPTION : "set-option"
+SPECIAL_CHARACTER : "_"
+                  | "+"
+                  | "-"
+                  | "*"
+                  | "&"
+                  | "|"
+                  | "!"
+                  | "-"
+                  | "<"
+                  | ">"
+                  | "="
+                  | "/"
+                  | "%"
+                  | "?"
+                  | "."
+                  | "$"
+                  | "^"
+STRING_CONST : "\"" (UPPERCASE_LETTER | LOWERCASE_LETTER | SPECIAL_CHARACTER | DIGIT | "\"\"")* "\""
+SYMBOL.-1 : (UPPERCASE_LETTER | LOWERCASE_LETTER | SPECIAL_CHARACTER) (UPPERCASE_LETTER | LOWERCASE_LETTER | SPECIAL_CHARACTER | DIGIT)*
+SYNTH_FUN : "synth-fun"
+UNDERSCORE : "_"
+UPPERCASE_LETTER.-2 : /[A-Z]/
+VARIABLE : "Variable"
+WHITESPACE : /[ \t\n\f\r]+/
+
+%ignore WHITESPACE
